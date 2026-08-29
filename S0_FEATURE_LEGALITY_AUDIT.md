@@ -5,6 +5,7 @@
 ```text
 LABEL_LEAKAGE_FOUND=False
 FUTURE_LEAKAGE_FOUND=False
+TRAIN_VAL_LEAKAGE_FOUND=False
 S0_CAPACITY_ADJACENT_STATUS=LEGAL_CAPACITY_ADJACENT__PAPER_INPUT_MISMATCH
 ```
 
@@ -16,6 +17,6 @@ S0_CAPACITY_ADJACENT_STATUS=LEGAL_CAPACITY_ADJACENT__PAPER_INPUT_MISMATCH
 | discharge voltage mean/std | current completed discharge | `LEGAL_CAPACITY_ADJACENT` | `PAPER_INCOMPATIBLE` as paper specifies charging HFs. |
 | discharge temperature mean/std | current completed discharge | `LEGAL_CAPACITY_ADJACENT` | `PAPER_INCOMPATIBLE` as paper specifies charging HFs. |
 
-`SOH` is read only as `y`; no S0 feature column is Capacity or SOH. Every record is current-cycle and has `TestLoaded=False`. The frozen prefix has no post-validation records, and fitting/scaling occurs on training rows only. High correlation with SOH does not make same-cycle post-discharge duration or energy `DIRECT_LABEL_LEAKAGE`.
+`SOH` is read only as `y`; no S0 feature column is Capacity or SOH. Every record is current-cycle and has `TestLoaded=False`. The frozen prefix has no post-validation records, and fitting/scaling occurs on training rows only. The fixed `alpha=0.1` S0 reproduction does not use outer-validation scores for model/feature selection. High correlation with SOH does not make same-cycle post-discharge duration or energy `DIRECT_LABEL_LEAKAGE`.
 
 The high S0 performance is capacity-adjacent: full discharge duration and delivered energy are close to capacity measurement under a fixed protocol. They cannot support partial-charge or pre-discharge estimation claims.

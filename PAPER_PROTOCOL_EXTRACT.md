@@ -15,6 +15,7 @@ This extract uses only the locally recovered paper body (`paper_text.txt`), not 
 | Augmentation | pp. 4–9 / lines 212–282, 407–445 | SCF-GAN with conditional information, feature matching and conditional batch normalization is part of the pipeline. |
 | Temporal model | pp. 5–9 / lines 289–410, 472–490 | STL; TimesNet for trend/seasonal; iTransformer for residual; attention Bi-LSTM fusion. Component models use 10-step sliding windows. |
 | Published split detail | accessible text | The recovered body explicitly gives first-20%-of-life original target samples, but does not uniquely state a chronological 60/20/20 target split or map it to the augmented experiment. `PAPER_AMBIGUOUS`. |
+| Validation/evaluation protocol | p. 9 / lines 474–490; p. 10 / lines 1147–1165, 1220–1224 | The paper reports validation-based early stopping and standard error metrics, but the recovered text does not uniquely map the validation batteries, target first-20% samples, any 60/20/20 split, and synthetic data into one reproducible row-level protocol. `PAPER_AMBIGUOUS`. |
 | Duration/energy boundary | accessible text | The paper specifies charging-duration HFs; it does not explicitly permit or prohibit completed-discharge energy input. It does not define a general all-sensor boundary. `PAPER_AMBIGUOUS` for a general prohibition, while its stated input is charging HFs. |
 
 ## Interpretation guard
