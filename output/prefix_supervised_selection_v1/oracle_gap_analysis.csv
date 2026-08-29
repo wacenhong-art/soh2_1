@@ -1,0 +1,3 @@
+﻿Battery,AlgorithmSelectedSource,OracleSource,SelectionMatchesOracle,SelectedValidationRMSE,OracleValidationRMSE,SelectedMinusOracleRMSE,C3DiagnosticOnly,TestLoaded
+B0007,B0006,B0005,False,2.653955433423183,1.9854789126373178,0.6684765207858652,True,False
+B0018,B0005,B0005,True,1.3767644658268179,1.3767644658268179,0.0,True,False

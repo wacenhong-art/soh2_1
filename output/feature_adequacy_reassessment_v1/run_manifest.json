@@ -1,0 +1,29 @@
+{
+  "experiment": "FEATURE_ADEQUACY_REASSESSMENT_v1",
+  "test_loaded": false,
+  "train_end": {
+    "B0007": 33,
+    "B0018": 25
+  },
+  "validation_end": {
+    "B0007": 67,
+    "B0018": 51
+  },
+  "raw_feature_names": [
+    "DISCHARGE_DURATION_S",
+    "DISCHARGE_V4P0_TO_V3P6_S",
+    "DISCHARGE_VOLTAGE_MEAN_V",
+    "DISCHARGE_VOLTAGE_STD_V",
+    "DISCHARGE_TEMPERATURE_MEAN_C",
+    "DISCHARGE_TEMPERATURE_STD_C",
+    "DISCHARGE_ENERGY_WH"
+  ],
+  "feature_counts": {
+    "F0": 3,
+    "F1": 7,
+    "F2": 10
+  },
+  "legacy_f0_provenance": "centered full-series smoothing; reference only",
+  "f1_eligibility": "only leakage-safe feature set",
+  "decision_record": "DECISION_RECORD_FEATURE_ADEQUACY_REASSESSMENT.md"
+}

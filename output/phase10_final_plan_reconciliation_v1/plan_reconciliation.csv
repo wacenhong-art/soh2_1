@@ -1,0 +1,32 @@
+﻿item_id,original_plan_item,intended_purpose,related_phase,status,evidence,reason,remaining_action
+1,任务背景与失稳问题界定,明确可检验问题并禁止以漂亮R2替代机制证据,0-9,COMPLETED,REPRO_AUDIT.md; Phase1-9 reports,全程保留负R2、失败seed和locked-test边界。,None
+2,Track A/Track B严格分离,避免把论文复现与自定义增强混为一谈,0-5,COMPLETED,REPRO_AUDIT.md tracks; Phase2 distinct PAPER_FUSION/IPRF rows,论文参数、REPRO_DEFINED和增强命名已分离。,None
+3,Repository Audit,先建立代码、数据和论文参数审计,0,COMPLETED,REPRO_AUDIT.md,已形成paper contract与L_weight边界。,None
+4,数据数量审计,实际计算小样本窗口数,"0,2,3",COMPLETED,Phase2 sample table; Phase3A parameter/sample table,B0007/B0018 fusion samples明确为19/11（seq=4）。,None
+5,数据泄漏审计,锁定测试、训练前缀和缩放/窗口边界,0-9,COMPLETED,REPRO_AUDIT.md; each phase protocol TestLoaded=false,所有Phase1-9验证行显式记录test未加载。,None
+6,可靠基线,避免只与失败fusion比较,"1,4,5,6",COMPLETED,Phase4A persistence; Phase5 recursive persistence; Phase6 direct Ridge,基线信息集与诊断性one-step持久性已分开。,None
+7,Fusion诊断日志,定位输出爆炸、权重坍缩和训练不稳,"1,2",COMPLETED,Phase1 all_run_metrics_with_gates.csv; Phase2 report,catastrophic、权重熵和时序变化均被记录。,None
+8,三类崩溃模式检查,区分输出爆炸、权重坍缩和权重抖动,"1,2",COMPLETED,Phase1 FINAL_JUDGMENT; Phase2 metrics,bounded residual修复输出爆炸；准确率问题仍存在。,None
+9,多随机种子协议,禁止只汇报最好seed,1-5,COMPLETED,"Phase1-5 reports, fixed seeds [42,123,2024,3407,7777]",融合与分量模型阶段均按五seed报告。,None
+10,模型晋级标准,以双电池、全部seed、无catastrophic和locked-test为门,1-5,COMPLETED,Phase1/2/3A/3B gate tables,所有融合配置均诚实标为NO_QUALIFIED_CONFIGURATION。,None
+11,一次只改一个变量,保证因果归因与消融可解释,1-9,COMPLETED,Phase2-9 protocol sections,每阶段预注册单一核心问题；不进行隐性大网格。,None
+12,E1 Fusion sequence length,检验更短context是否用更多窗口提升稳定性,2,COMPLETED,PHASE2_REPORT.md,seq=4最好但全部失败，样本数增加不是主瓶颈。,None
+13,E2 Bi-LSTM capacity,检验减少参数是否改善小样本稳健性,"3A,3B",COMPLETED,PHASE3A_REPORT.md; PHASE3B_REPORT.md,参数/sample从1793降至约3.8仍未合格。,None
+14,E3 BatchNorm到LayerNorm,作为单变量稳定性增强,post-5,NOT_REQUIRED_AFTER_CAUSAL_ATTRIBUTION,Phase4A/5 multi-component forecasting failure,上游分量预测先失败；未观察到fusion容量是主因。,若提出新的上游可预测分量，应单独预注册比较。
+15,E4 stable initialization,令初始预测接近可靠重构,post-4,NOT_REQUIRED_AFTER_CAUSAL_ATTRIBUTION,Phase4A predicted reconstruction failure; Phase1 residual safety result,可靠的上游重构不存在，初始化不能修复其系统误差。,只有出现已验证的分量基线后再评估。
+16,E5 constrained residual fusion,将无约束SOH生成改为有界修正,"1,2",COMPLETED,Phase1 FINAL_JUDGMENT; Phase2 report,catastrophic 25->0，但没有恢复可靠正R2。,保留为安全护栏，不作为精度结论。
+17,论文fusion与residual fusion分表,防止把自定义增强伪称论文原式,0-2,COMPLETED,REPRO_AUDIT.md; Phase2 ranking,PAPER_FUSION与IPRF_RESIDUAL_FUSION始终分开。,None
+18,E6 KL权重正则,抑制attention权重极端坍缩,post-4,NOT_REQUIRED_AFTER_CAUSAL_ATTRIBUTION,Phase1 L_weight UNVERIFIED_DISABLED; Phase4A/5,论文L_weight未定义；更关键的是分量预测先失败。,不应作为论文修复或Phase11默认任务。
+19,E7 temporal weight smoothing,抑制权重高速抖动,post-4,NOT_REQUIRED_AFTER_CAUSAL_ATTRIBUTION,Phase2 diagnostics; Phase4A/5,权重平滑不会使错误分量成为可预测分量。,仅在上游通过后作为增强消融。
+20,Transfer/Calibration独立轨道,严格区分zero-shot和使用target标签的calibration,"8,9",COMPLETED,PHASE8_REPORT.md; PHASE9_REPORT.md,P1无target SOH，P2明确CALIBRATED。,None
+21,论文目标数据设置核对,不擅自消解60/20/20与first20描述冲突,0,INCONCLUSIVE,REPRO_AUDIT.md PAPER_AMBIGUOUS,原论文公开描述未能仅凭代码审计统一。,论文作者材料或官方代码可用于未来澄清；不影响本地前缀轨道结论。
+22,推荐执行顺序,从审计到归因，再到转移机制,0-9,COMPLETED,Phase numbering and reports,实际执行遵守先融合、后分量、后表征、后迁移归因。,None
+23,候选核心模型组合,仅在单因素证据成立后组合模块,post-5,SUPERSEDED_BY_EVIDENCE,Phase3B; Phase4A; Phase5,任何fusion组合均无法绕过上游预测失败。,不进行无证据的模块堆叠。
+24,最终实验表,统一保存逐run与summary指标,1-9,COMPLETED,Phase1 all_run_metrics; Phase2-9 metrics CSV,各阶段均保存可追溯指标，Phase10再汇总完成度。,None
+25,必要图表,用预测、权重、seed与battery图支撑结论,1-5,COMPLETED,Phase1-5 output figure/metric artifacts,诊断图与表存在于对应阶段；本阶段不制造新结论图。,论文写作时从冻结CSV重新作图。
+26,实验可复现性目录,保存配置、指标、预测、环境和seed,1-9,INCONCLUSIVE,Phase1 environment/config; phase-specific scripts and CSV,核心追溯材料存在，但未形成跨Phase统一manifest。,工程性整理项，不改变本次因果结论，不构成Phase11。
+27,共享配置化代码架构,防止模型代码复制和隐性漂移,1-9,INCONCLUSIVE,scripts/65-75_phase*.py,阶段脚本可追溯但非单一通用FusionConfig架构。,重构属于工程维护，非继续实验的必要条件。
+28,单元测试,验证权重、bound、split、scaler和shape契约,0-9,INCONCLUSIVE,Phase reports' contract checks,运行时审计覆盖关键边界，但没有完整独立unit-test suite。,工程硬化建议；非影响现有结论的关键证据缺口。
+29,禁止事项,禁止test选参、挑seed、伪zero-shot和伪论文公式,0-9,COMPLETED,REPRO_AUDIT.md; every phase protocol,已保持test locked、标签轨道命名和UNVERIFIED边界。,None
+30,研究问题回答,从稳定性、表征到迁移机制逐项作答,1-9,COMPLETED,PHASE10_REPORT.md; final_causal_chain.md,RQ以证据强度而非最佳RMSE回答。,None
+31,潜在创新点边界,仅在证据支持时形成可检验研究故事,"9,10",COMPLETED,PHASE9_REPORT.md; research_direction_candidates.md,支持的是兼容性感知迁移假设，不是已验证通用SOTA。,跨电池/跨数据集验证是发表扩展，不是本NASA闭环的必需Phase11。

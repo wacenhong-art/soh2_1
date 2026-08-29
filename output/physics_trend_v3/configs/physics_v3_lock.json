@@ -1,0 +1,12 @@
+{
+  "selected_on": "B0034 development evaluation",
+  "selected_physics_mode": "both",
+  "selected_lambda_phy": 0.001,
+  "architecture": "SOH-scale trainable Ridge anchor + original TimesNet residual; Seasonal lightweight TimesNet; Residual iTransformer; bounded Attention Bi-LSTM fusion",
+  "component_guard": "Seasonal/Residual first-prefix range plus 5%",
+  "physics_scope": "STL Trend only",
+  "trajectory_rule": "same BatteryID/DatasetID with continuous Cycle only",
+  "test_tuning": false,
+  "confirmation_status": "failed on contacted B0018; B0034/B0036 bootstrap intervals cross zero",
+  "config_sha256": "9b6be742d86a2dba2dac8e9f2042060977267840747dc9df7eccad4b6f5d3bb9"
+}

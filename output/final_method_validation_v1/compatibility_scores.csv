@@ -1,0 +1,3 @@
+﻿Battery,Score_B0005,Score_B0006,SelectedSource,SelectedScore,CandidateOrderReversed,SelectedWithReversedOrder,SelectedWithAliasedNames,OrderInvariant,SourceNameInvariant,ScoreInvariant,SanityCheckPassed,SelectionUsesTargetSOH,SelectionUsesValidationSOH,SelectionUsesTestSOH,TestLoaded
+B0007,0.2184637486934662,0.13672466576099396,B0006,0.13672466576099396,"B0006,B0005",B0006,B0006,True,True,True,True,False,False,False,False
+B0018,0.34287604689598083,0.21059559285640717,B0006,0.21059559285640717,"B0006,B0005",B0006,B0006,True,True,True,True,False,False,False,False

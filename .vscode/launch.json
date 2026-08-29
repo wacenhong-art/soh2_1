@@ -1,0 +1,304 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "800轮网格搜索",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/64_train_800_grid.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["all"]
+    },
+    {
+      "name": "网格搜索：只估算数量",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/58_build_hyperparameter_grid.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["--estimate-only"]
+    },
+    {
+      "name": "数据审查：四电池异常值",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/61_audit_four_battery_outliers.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": []
+    },
+    {
+      "name": "数据审查：增强HF分布对比",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/63_compare_augmented_hf_distributions.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": []
+    },
+    {
+      "name": "换源协议：准备18+6到5+7",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/62_prepare_source_swap_protocol.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": []
+    },
+    {
+      "name": "换源协议：训练SCF-GAN源18+6",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/02_scf_gan.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "env": {
+        "SCF_SOURCE_BATTERIES": "B0018,B0006",
+        "SCF_GAN_ACTION": "train",
+        "SCF_MODEL_DIR": "${workspaceFolder}/output/source18_6_target5_7/model",
+        "SCF_OUTPUT_DIR": "${workspaceFolder}/output/source18_6_target5_7/aug"
+      },
+      "args": []
+    },
+    {
+      "name": "换源协议：生成B0005增强",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/02_scf_gan.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "env": {
+        "SCF_SOURCE_BATTERIES": "B0018,B0006",
+        "SCF_GAN_ACTION": "generate",
+        "TARGET_BATTERY": "B0005",
+        "SCF_MODEL_DIR": "${workspaceFolder}/output/source18_6_target5_7/model",
+        "SCF_OUTPUT_DIR": "${workspaceFolder}/output/source18_6_target5_7/aug"
+      },
+      "args": []
+    },
+    {
+      "name": "换源协议：生成B0007增强",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/02_scf_gan.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "env": {
+        "SCF_SOURCE_BATTERIES": "B0018,B0006",
+        "SCF_GAN_ACTION": "generate",
+        "TARGET_BATTERY": "B0007",
+        "SCF_MODEL_DIR": "${workspaceFolder}/output/source18_6_target5_7/model",
+        "SCF_OUTPUT_DIR": "${workspaceFolder}/output/source18_6_target5_7/aug"
+      },
+      "args": []
+    },
+    {
+      "name": "网格搜索：生成A阶段配置",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/58_build_hyperparameter_grid.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["--stages", "A_representation", "--allow-huge"]
+    },
+    {
+      "name": "网格搜索：生成D正R2保守配置",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/58_build_hyperparameter_grid.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["--stages", "D_trend_physics", "--allow-huge"]
+    },
+    {
+      "name": "网格搜索：生成D前4复验配置",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/58_build_hyperparameter_grid.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["--stages", "D_top4_validation", "--allow-huge"]
+    },
+    {
+      "name": "网格搜索：生成D局部细搜配置",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/58_build_hyperparameter_grid.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["--stages", "D_local_best", "--allow-huge"]
+    },
+    {
+      "name": "网格搜索：生成D稳定性筛选配置",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/58_build_hyperparameter_grid.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["--stages", "D_stability_screen", "--allow-huge"]
+    },
+    {
+      "name": "网格搜索：生成D穷举1000配置",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/58_build_hyperparameter_grid.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["--stages", "D_exhaustive_1000", "--allow-huge"]
+    },
+    {
+      "name": "训练网格：预览D正R2第1个配置",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/59_train_hyperparameter_grid.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["--stage", "D_trend_physics", "--start-index", "1", "--max-configs", "1", "--dry-run"]
+    },
+    {
+      "name": "训练网格：D正R2第1个配置",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/59_train_hyperparameter_grid.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["--stage", "D_trend_physics", "--start-index", "1", "--max-configs", "1"]
+    },
+    {
+      "name": "训练网格：D正R2前10个配置",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/59_train_hyperparameter_grid.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["--stage", "D_trend_physics", "--start-index", "1", "--max-configs", "10"]
+    },
+    {
+      "name": "训练网格：D正R2全部47个配置",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/59_train_hyperparameter_grid.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["--stage", "D_trend_physics", "--start-index", "1", "--max-configs", "47"]
+    },
+    {
+      "name": "训练网格：预览D前4五seed复验",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/59_train_hyperparameter_grid.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["--stage", "D_top4_validation", "--start-index", "1", "--max-configs", "4", "--seeds", "42,52,62,72,82", "--dry-run"]
+    },
+    {
+      "name": "训练网格：D前4五seed复验",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/59_train_hyperparameter_grid.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["--stage", "D_top4_validation", "--start-index", "1", "--max-configs", "4", "--seeds", "42,52,62,72,82"]
+    },
+    {
+      "name": "训练网格：预览D局部细搜全部",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/59_train_hyperparameter_grid.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["--stage", "D_local_best", "--start-index", "1", "--max-configs", "360", "--seed", "42", "--dry-run"]
+    },
+    {
+      "name": "训练网格：D局部细搜全部seed42",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/59_train_hyperparameter_grid.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["--stage", "D_local_best", "--start-index", "1", "--max-configs", "360", "--seed", "42"]
+    },
+    {
+      "name": "训练网格：预览D稳定性筛选五seed",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/59_train_hyperparameter_grid.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["--stage", "D_stability_screen", "--start-index", "1", "--max-configs", "36", "--seeds", "42,52,62,72,82", "--dry-run"]
+    },
+    {
+      "name": "训练网格：D稳定性筛选五seed",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/59_train_hyperparameter_grid.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["--stage", "D_stability_screen", "--start-index", "1", "--max-configs", "36", "--seeds", "42,52,62,72,82"]
+    },
+    {
+      "name": "训练网格：预览换源18+6目标5+7",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/59_train_hyperparameter_grid.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["--stage", "D_stability_screen", "--start-index", "1", "--max-configs", "36", "--seeds", "42,52,62,72,82", "--protocol-name", "Source18_6_Target5_7", "--source-batteries", "B0018,B0006", "--batteries", "B0005,B0007", "--aug-dir", "${workspaceFolder}/output/source18_6_target5_7/aug", "--runs-root", "${workspaceFolder}/output/source18_6_target5_7/runs", "--dry-run"]
+    },
+    {
+      "name": "训练网格：换源18+6目标5+7",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/59_train_hyperparameter_grid.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["--stage", "D_stability_screen", "--start-index", "1", "--max-configs", "36", "--seeds", "42,52,62,72,82", "--protocol-name", "Source18_6_Target5_7", "--source-batteries", "B0018,B0006", "--batteries", "B0005,B0007", "--aug-dir", "${workspaceFolder}/output/source18_6_target5_7/aug", "--runs-root", "${workspaceFolder}/output/source18_6_target5_7/runs"]
+    },
+    {
+      "name": "分析网格：D稳定性筛选排名",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/60_rank_stability_grid.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["--stage", "D_stability_screen", "--top-n", "20"]
+    },
+    {
+      "name": "分析网格：换源18+6目标5+7排名",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/60_rank_stability_grid.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["--stage", "D_stability_screen", "--runs-root", "${workspaceFolder}/output/source18_6_target5_7/runs", "--top-n", "20"]
+    },
+    {
+      "name": "训练网格：预览D穷举1000跳过已训练",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/59_train_hyperparameter_grid.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["--stage", "D_exhaustive_1000", "--start-index", "1", "--max-configs", "1000", "--seed", "42", "--skip-equivalent-completed", "--dry-run"]
+    },
+    {
+      "name": "训练网格：D穷举1000跳过已训练",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/59_train_hyperparameter_grid.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["--stage", "D_exhaustive_1000", "--start-index", "1", "--max-configs", "1000", "--seed", "42", "--skip-equivalent-completed"]
+    },
+    {
+      "name": "分析网格：D穷举1000排名",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/60_rank_stability_grid.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": ["--stage", "D_exhaustive_1000", "--top-n", "30"]
+    }
+  ]
+}

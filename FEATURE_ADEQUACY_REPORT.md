@@ -1,0 +1,49 @@
+# Feature Adequacy Report
+
+FEATURE_ADEQUACY_DECISION = FEATURE_ENRICHMENT_EFFECTIVE
+NEXT_STAGE = SUPERVISED_PERFORMANCE_RECOVERY
+
+## Boundary
+`TestLoaded=False` for every output row. F1 is the only leakage-safe feature set. F0/F2 remain legacy reference comparisons due full-series centered smoothing in the old HF extractor.
+
+## Performance summary
+
+Battery,FeatureSet,Model,FormalEligibility,MeanRMSE,RMSEStd,MeanMAE,MeanR2,WorstR2,PositiveR2Seeds,Runs,Catastrophic
+B0007,F0_LEGACY_HF,M0_RIDGE,LEGACY_REFERENCE_NOT_STRICTLY_CAUSAL,3.3413460378362565,0.0,2.986826180547013,-1.219012005088414,-1.219012005088414,0,1,0
+B0007,F0_LEGACY_HF,M1_FIXED_MLP,LEGACY_REFERENCE_NOT_STRICTLY_CAUSAL,2.7148379956473834,1.0494702532271278,2.434122197745366,-0.640013071162137,-1.8332711422435142,1,5,0
+B0007,F1_RAW_HEALTH,M0_RIDGE,F1_ONLY,2.0344189987391093,0.0,1.7611412853120636,0.17738324953918005,0.17738324953918005,1,1,0
+B0007,F1_RAW_HEALTH,M1_FIXED_MLP,F1_ONLY,3.1061617773358448,1.098965413729707,2.6868864976426012,-1.1096628274561247,-3.206501632605927,1,5,0
+B0007,F2_LEGACY_PLUS_RAW,M0_RIDGE,LEGACY_REFERENCE_NOT_STRICTLY_CAUSAL,1.59327606114621,0.0,1.3977745412145222,0.4954562803683368,0.4954562803683368,1,1,0
+B0007,F2_LEGACY_PLUS_RAW,M1_FIXED_MLP,LEGACY_REFERENCE_NOT_STRICTLY_CAUSAL,3.035196959594105,0.8321676108254498,2.6202965138707723,-0.9411194889566141,-2.2593226236445036,2,5,0
+B0018,F0_LEGACY_HF,M0_RIDGE,LEGACY_REFERENCE_NOT_STRICTLY_CAUSAL,1.1891557975717495,0.0,0.9731922154324655,0.5691125862537494,0.5691125862537494,1,1,0
+B0018,F0_LEGACY_HF,M1_FIXED_MLP,LEGACY_REFERENCE_NOT_STRICTLY_CAUSAL,1.8879045389779585,0.2670728774381204,1.6905817328537107,-0.10342878253565121,-0.5835666253595302,2,5,0
+B0018,F1_RAW_HEALTH,M0_RIDGE,F1_ONLY,0.3750906006574189,0.0,0.34967088197190976,0.9571294894000907,0.9571294894000907,1,1,0
+B0018,F1_RAW_HEALTH,M1_FIXED_MLP,F1_ONLY,1.2122381588228224,0.3361487168318624,1.0946466146536027,0.5246778020529937,0.24258553764719692,5,5,0
+B0018,F2_LEGACY_PLUS_RAW,M0_RIDGE,LEGACY_REFERENCE_NOT_STRICTLY_CAUSAL,0.5255065130462989,0.0,0.49824483075871867,0.9158522516791714,0.9158522516791714,1,1,0
+B0018,F2_LEGACY_PLUS_RAW,M1_FIXED_MLP,LEGACY_REFERENCE_NOT_STRICTLY_CAUSAL,1.5083230668859282,0.5776524972445166,1.3513885890852626,0.22543267141768633,-0.3808463543341951,3,5,0
+
+
+## Stop
+All frozen features and model runs are complete. No follow-up feature/window/model search is authorized by this report.
+
+## Interpretation and claim boundary
+
+`CURRENT_HF_SET_WAS_INADEQUATE` is supported **for this end-of-cycle NASA
+estimation setting**: the leakage-safe F1 Ridge improves B0007 from RMSE 3.341 /
+R² -1.219 (legacy F0 reference) to RMSE 2.034 / R² 0.177, and B0018 from 1.189 /
+0.569 to 0.375 / 0.957. This is observed with Ridge alone; the fixed MLP does not
+improve the result, so the evidence attributes recovery to added raw health
+information rather than increased model capacity.
+
+F1 includes discharge duration and voltage-current energy from the same discharge
+whose capacity defines SOH. These are physically meaningful but label-near,
+post-discharge descriptors; they cannot support claims about SOH prediction before
+the discharge completes. The F1 descriptors also show substantial within-set
+collinearity (for example B0018 duration/energy correlation 0.993), so this run
+does not identify a unique causal feature or a minimal feature subset.
+
+F2 is numerically stronger on B0007 Ridge (RMSE 1.593 / R² 0.495), but it includes
+the legacy full-series-smoothed HFs. It is therefore audit-only and is ineligible
+for any no-leakage conclusion, method freeze, or next-stage design. B0007/B0018
+remain development evidence only; no cross-dataset generalization or innovation
+claim is made.

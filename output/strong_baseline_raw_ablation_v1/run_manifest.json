@@ -1,0 +1,61 @@
+{
+  "experiment": "STRONG_BASELINE_RAW_ABLATION_v1",
+  "test_loaded": false,
+  "source_feature_file": "output\\feature_adequacy_reassessment_v1\\frozen_raw_features.csv",
+  "feature_sets": {
+    "A0_FULL_F1": [
+      "DISCHARGE_DURATION_S",
+      "DISCHARGE_V4P0_TO_V3P6_S",
+      "DISCHARGE_VOLTAGE_MEAN_V",
+      "DISCHARGE_VOLTAGE_STD_V",
+      "DISCHARGE_TEMPERATURE_MEAN_C",
+      "DISCHARGE_TEMPERATURE_STD_C",
+      "DISCHARGE_ENERGY_WH"
+    ],
+    "A1_NO_DURATION": [
+      "DISCHARGE_V4P0_TO_V3P6_S",
+      "DISCHARGE_VOLTAGE_MEAN_V",
+      "DISCHARGE_VOLTAGE_STD_V",
+      "DISCHARGE_TEMPERATURE_MEAN_C",
+      "DISCHARGE_TEMPERATURE_STD_C",
+      "DISCHARGE_ENERGY_WH"
+    ],
+    "A2_NO_ENERGY": [
+      "DISCHARGE_DURATION_S",
+      "DISCHARGE_V4P0_TO_V3P6_S",
+      "DISCHARGE_VOLTAGE_MEAN_V",
+      "DISCHARGE_VOLTAGE_STD_V",
+      "DISCHARGE_TEMPERATURE_MEAN_C",
+      "DISCHARGE_TEMPERATURE_STD_C"
+    ],
+    "A3_NO_DURATION_ENERGY": [
+      "DISCHARGE_V4P0_TO_V3P6_S",
+      "DISCHARGE_VOLTAGE_MEAN_V",
+      "DISCHARGE_VOLTAGE_STD_V",
+      "DISCHARGE_TEMPERATURE_MEAN_C",
+      "DISCHARGE_TEMPERATURE_STD_C"
+    ]
+  },
+  "seeds": [
+    42,
+    123,
+    2024,
+    3407,
+    7777
+  ],
+  "selected_family_from_inner_prefix_only": "M1_ELASTICNET",
+  "selected_target_configs": {
+    "B0007": {
+      "M0_RIDGE": "alpha=0.1",
+      "M1_ELASTICNET": "alpha=0.01;l1_ratio=0.5",
+      "M2_HIST_GRADIENT_BOOSTING": "max_leaf_nodes=3;min_samples_leaf=2;l2=1.0",
+      "M3_SMALL_MLP": "hidden=16;lr=0.001;wd=1e-5"
+    },
+    "B0018": {
+      "M0_RIDGE": "alpha=0.1",
+      "M1_ELASTICNET": "alpha=0.01;l1_ratio=0.5",
+      "M2_HIST_GRADIENT_BOOSTING": "max_leaf_nodes=7;min_samples_leaf=2;l2=1.0",
+      "M3_SMALL_MLP": "hidden=16;lr=0.001;wd=1e-5"
+    }
+  }
+}

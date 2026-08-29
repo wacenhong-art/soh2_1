@@ -1,0 +1,30 @@
+{
+  "experiment": "SUPERVISED_PERFORMANCE_RECOVERY_v1",
+  "batteries": [
+    "B0007",
+    "B0018"
+  ],
+  "seeds": [
+    42,
+    123,
+    2024,
+    3407,
+    7777
+  ],
+  "train_end": {
+    "B0007": 33,
+    "B0018": 25
+  },
+  "validation_end": {
+    "B0007": 67,
+    "B0018": 51
+  },
+  "test_loaded": false,
+  "feature_sets": [
+    "F0_HF_CURRENT",
+    "F1_HF_CAUSAL_TEMPORAL"
+  ],
+  "candidate_count": 17,
+  "protocol": "PERFORMANCE_RECOVERY_PROTOCOL.md",
+  "decision_record": "DECISION_RECORD_SUPERVISED_PERFORMANCE_RECOVERY.md"
+}

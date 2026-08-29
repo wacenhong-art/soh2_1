@@ -1,0 +1,5 @@
+﻿Battery,Source,PrefixCompatibilityError,Rank,SelectedSource,SourceTrainingWindows,PrefixScoringWindows,SelectionUsesTargetPrefixSOH,SelectionUsesValidationSOH,SelectionUsesTestSOH,TestLoaded
+B0007,B0005,1.9762515701779926,2,B0006,158,23,True,False,False,False
+B0007,B0006,1.7829671246059298,1,B0006,116,23,True,False,False,False
+B0018,B0005,1.0044997423968216,1,B0005,158,15,True,False,False,False
+B0018,B0006,1.7323026906402679,2,B0005,116,15,True,False,False,False

@@ -1,0 +1,17 @@
+﻿Battery,Representation,PrefixPercent,Rows,ReconstructionRMSE,MaxAbsoluteReconstructionError,DeltaInitialSOHSource,TestLoaded
+B0007,D0_ORIGINAL_STL,20,33,0.0,0.0,not_applicable,False
+B0007,D1_CAUSAL_EMA_A0.2,20,33,0.0,0.0,not_applicable,False
+B0007,D2_CAUSAL_ROLLING_MEDIAN_W5,20,33,0.0,0.0,not_applicable,False
+B0007,D3_FIRST_DIFFERENCE,20,33,0.0,0.0,cycle_0_observed,False
+B0007,D0_ORIGINAL_STL,40,67,1.736132224384409e-15,1.4210854715202004e-14,not_applicable,False
+B0007,D1_CAUSAL_EMA_A0.2,40,67,0.0,0.0,not_applicable,False
+B0007,D2_CAUSAL_ROLLING_MEDIAN_W5,40,67,0.0,0.0,not_applicable,False
+B0007,D3_FIRST_DIFFERENCE,40,67,0.0,0.0,cycle_0_observed,False
+B0018,D0_ORIGINAL_STL,20,25,0.0,0.0,not_applicable,False
+B0018,D1_CAUSAL_EMA_A0.2,20,25,0.0,0.0,not_applicable,False
+B0018,D2_CAUSAL_ROLLING_MEDIAN_W5,20,25,0.0,0.0,not_applicable,False
+B0018,D3_FIRST_DIFFERENCE,20,25,0.0,0.0,cycle_0_observed,False
+B0018,D0_ORIGINAL_STL,40,51,1.98991768347129e-15,1.4210854715202004e-14,not_applicable,False
+B0018,D1_CAUSAL_EMA_A0.2,40,51,0.0,0.0,not_applicable,False
+B0018,D2_CAUSAL_ROLLING_MEDIAN_W5,40,51,0.0,0.0,not_applicable,False
+B0018,D3_FIRST_DIFFERENCE,40,51,0.0,0.0,cycle_0_observed,False
