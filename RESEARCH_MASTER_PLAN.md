@@ -318,7 +318,7 @@ requires explicit human researcher authorization before ④.
 
 ```text
 COMPLETED_DATE=2026-09-03
-COMPLETED_COMMIT=PENDING_CURRENT_GATE_ARCHIVE
+COMPLETED_COMMIT=48de81e
 FINAL_STATUS=BLOCKED
 KEY_RESULT=External source eligibility is documented, but direct-method novelty remains unresolved and B0007 has only 31/67 strict immediate charge/discharge pairs.
 FAILED_OR_UNRESOLVED_ITEMS=G2 direct-collision verification remains pending; MATCHED_CYCLE fails under the predeclared strict pair rule; no L1/L2/L3 performance evidence exists.
