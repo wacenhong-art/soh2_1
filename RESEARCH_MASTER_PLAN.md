@@ -340,7 +340,7 @@ WHAT_DID_NOT_CHANGE=ROOT remains frozen; no model/metric/test/validation label w
 DOWNSTREAM_IMPACT=No phase advancement. If approved, a new Decision Record and immutable protocol v1.1 are required before any Phase ④ authorization.
 REQUIRES_REOPENING=True
 REOPENING_STATUS=BLOCKED_PENDING_HUMAN_PROTOCOL_AMENDMENT_DECISION
-GIT_COMMIT=PENDING_CURRENT_AUDIT_ARCHIVE
+GIT_COMMIT=2424fe1
 ```
 
 ---
