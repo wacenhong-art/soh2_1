@@ -17,7 +17,7 @@ PRIMARY_INNOVATION_COUNT=1
 ROOT_STATUS=FROZEN
 EXPERIMENT_AUTHORIZATION=BLOCKED_PENDING_PTOC_PRE_EXPERIMENT_GATE
 LOCKED_TEST_STATUS=NOT_LOADED
-NEXT_ALLOWED_ACTION=HUMAN_DECISION_ON_L1_REFERENCE_TEST_SEMANTICS_AND_EXTERNAL_OPERATION_ADAPTER_AUDIT
+NEXT_ALLOWED_ACTION=HUMAN_GOVERNANCE_DECISION_ON_ROOT_PROVENANCE_RECONCILIATION_THEN_REASSESS_PROTOCOL_AMENDMENT_GATE
 ```
 
 ## ⓪ Overall Research Objective
@@ -961,4 +961,21 @@ GATE_IMPACT=No scientific result, Phase ①/② completion record, Phase ③ blo
 DOWNSTREAM_IMPACT=Phase ④ remains blocked. Future research closes at ⑨; no manuscript/submission action can be reached inside this plan.
 APPROVED_BY=human researcher request in current task
 GIT_COMMIT=de5707b
+```
+
+## PLAN-CHANGE-0004
+
+```text
+DATE=2026-09-03
+TRIGGER=Phase ③ L1 semantic, operation-ontology and ROOT provenance audit.
+CURRENT_PHASE=③ PTOC PRE-EXPERIMENT GATE
+CHANGED_SECTION=Current next-action register and current-phase evidence.
+OLD_PLAN_SUMMARY=The next action was human review of unresolved L1 reference-test semantics and an external operation-adapter audit.
+NEW_PLAN_SUMMARY=L1 is VALID_WITH_FROZEN_CONDITIONS and NASA plus Luh & Blank have a conditional label-blind ontology mapping; however the recovered ROOT pairing chain likely affects two B0007 input rows and the historical dc931f7 object is unavailable. The next action is human governance on source-artifact reconciliation before reconsidering the protocol-amendment gate.
+RATIONALE=Record the audited evidence without creating Protocol v1.1, changing ROOT, or advancing Phase ③.
+EVIDENCE=PTOC_PHASE3_BLOCKER_RESOLUTION_2.md; output/ptoc_phase3_blocker_resolution_2/operation_ontology_manifest.json; output/ptoc_phase3_blocker_resolution_2/root_pairing_bug_provenance.json.
+GATE_IMPACT=G2 remains ACCEPTABLE_PARTIAL_COLLISION; F4 remains FAIL_FOR_V1; F6 is unchanged; Phase ③ and ④ remain BLOCKED.
+DOWNSTREAM_IMPACT=No model or protocol execution is authorized. A future ROOT reopening, if approved, must use a Phase ① post-completion amendment rather than overwrite Phase ① PASS.
+APPROVED_BY=human researcher request in current task
+GIT_COMMIT=PENDING
 ```

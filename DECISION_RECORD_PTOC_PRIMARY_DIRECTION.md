@@ -155,3 +155,27 @@ The duplicate charge-to-discharge historical mappings are a confirmed extractor
 defect; whether either affected a particular frozen ROOT artifact is
 `UNRESOLVED`. ROOT is not invalidated and no rerun is authorized. See
 `PTOC_PHASE3_PROTOCOL_AMENDMENT_DECISION.md`.
+
+## Phase ③ blocker-resolution 2 — 2026-09-03
+
+```text
+L1_TARGET_SEMANTICS=VALID_WITH_FROZEN_CONDITIONS
+L1_DEFINITION=post-charge forecast of the scheduled subsequent reference-discharge capacity; diagnostic signal access is prohibited.
+EXTERNAL_OPERATION_ONTOLOGY=CONDITIONAL_PASS__NASA_AND_LUH_SCHEMA_LEVEL_MAPPING
+ROOT_PAIRING_BUG_IMPACT=LIKELY_AFFECTS_ROOT_INPUT_ROWS
+ROOT_REOPENING_REQUIRED=False
+ROOT_PROVENANCE_ACTION=HUMAN_GOVERNANCE_DECISION_ON_LABEL_SAFE_SOURCE_ARTIFACT_RECONCILIATION
+PTOC_F4=FAIL_FOR_V1__NOT_REOPENED
+PTOC_F6=FROZEN_EMPIRICAL_KILL_CONDITION
+PTOC_PROTOCOL_V1_1_CREATED=False
+PHASE_3_STATUS=BLOCKED
+EXPERIMENT_AUTHORIZATION=BLOCKED
+TestLoaded=False
+NEXT_STAGE=HUMAN_GOVERNANCE_DECISION_ON_ROOT_PROVENANCE_RECONCILIATION_THEN_REASSESS_PROTOCOL_AMENDMENT_GATE
+```
+
+This record adds evidence but does not authorize a protocol change, ROOT rerun,
+model fit, validation/test access, or Phase ④. The unavailable historical
+`dc931f7` object prevents a direct source-equivalence claim; the recovered
+static chain creates a provenance risk that requires human governance before a
+ROOT-dependent experiment.

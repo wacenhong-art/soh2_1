@@ -1,0 +1,17 @@
+{
+  "audit": "PTOC_PHASE3_BLOCKER_RESOLUTION_2_ROOT_PAIRING_PROVENANCE",
+  "label_or_performance_access": false,
+  "buggy_function": "scripts/83_feature_adequacy_reassessment.py::extract_prefix_raw",
+  "bug_logic": "first later discharge is selected without stopping on an intervening later charge",
+  "known_ambiguous_patterns": ["charge(22)->charge(23)->discharge(24)", "charge(83)->charge(84)->discharge(85)"],
+  "root_consumer": "scripts/84_strong_baseline_raw_feature_ablation.py::load",
+  "shared_artifact": "output/feature_adequacy_reassessment_v1/frozen_raw_features.csv",
+  "initial_recovery_commit": "2c28569b76e18511733dd7edef553bece310b163",
+  "historical_source_commit": "dc931f71be6f92f2895a7b1c26aa3158d3359fab",
+  "historical_source_commit_available_in_current_repository": false,
+  "current_scripts_and_artifact_identical_to_initial_recovery_commit": true,
+  "root_training_rows_potentially_affected": 2,
+  "root_pairing_bug_impact": "LIKELY_AFFECTS_ROOT_INPUT_ROWS",
+  "root_reopening_required": false,
+  "next_governance_action": "human decision on label-safe source-artifact reconciliation before ROOT-dependent new experiment"
+}

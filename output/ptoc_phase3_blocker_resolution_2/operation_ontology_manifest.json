@@ -1,0 +1,43 @@
+{
+  "audit": "PTOC_PHASE3_BLOCKER_RESOLUTION_2_OPERATION_ONTOLOGY",
+  "scope": "published schema and metadata only; no external data download, labels, models, or performance",
+  "test_loaded": false,
+  "canonical_classes": [
+    "STATE_ESTABLISHING_CHARGE",
+    "TARGET_REFERENCE_DISCHARGE",
+    "NONREFERENCE_DISCHARGE",
+    "REST",
+    "DIAGNOSTIC_NON_ENERGY_THROUGHPUT",
+    "DIAGNOSTIC_ENERGY_THROUGHPUT",
+    "UNKNOWN_OR_STATE_ALTERING"
+  ],
+  "mapping_policy": "derive operation class from declared type/state/current/time only; never use capacity or SOH values; exclude unknown mappings",
+  "datasets": [
+    {
+      "dataset": "NASA_B000x",
+      "raw_operation_types": ["charge", "discharge", "impedance"],
+      "mapping_status": "PASS_FOR_SCHEMA_LEVEL_MAPPING",
+      "l1_time_determinability": "PASS",
+      "target_discharge_determinability": "PASS_WITH_FROZEN_EVENT_RULE",
+      "special_case": "impedance is a diagnostic operation, not missingness and not an L1 feature"
+    },
+    {
+      "dataset": "Luh_Blank_NMC_C-SiO",
+      "raw_operation_schema": "scheduler states plus LOG V/I/T, EOC, EIS, PULSE and check-up/reference-capacity records",
+      "mapping_status": "CONDITIONAL_PASS_FOR_PRIMARY_EXTERNAL_ADAPTER",
+      "l1_time_determinability": "CONDITIONAL",
+      "target_discharge_determinability": "CONDITIONAL__requires_future_label_blind_file_level_adapter_audit",
+      "special_case": "PULSE is diagnostic energy-throughput and must not be an allowed intermediate"
+    },
+    {
+      "dataset": "RWTH_ISEA_NMC_GRAPHITE",
+      "raw_operation_schema": "published README lists cycling, capacity, multi-pulse, qOCV and EIS but does not verify record-level ordering",
+      "mapping_status": "BLOCKED_FOR_BACKUP_EXTERNAL_ADAPTER",
+      "l1_time_determinability": "UNRESOLVED",
+      "target_discharge_determinability": "UNRESOLVED",
+      "special_case": "not approved as an executable adapter from README evidence alone"
+    }
+  ],
+  "overall_status": "CONDITIONAL_PASS",
+  "protocol_amendment_created": false
+}
