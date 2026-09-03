@@ -17,7 +17,7 @@ PRIMARY_INNOVATION_COUNT=1
 ROOT_STATUS=FROZEN
 EXPERIMENT_AUTHORIZATION=BLOCKED_PENDING_PTOC_PRE_EXPERIMENT_GATE
 LOCKED_TEST_STATUS=NOT_LOADED
-NEXT_ALLOWED_ACTION=PTOC_PRE_EXPERIMENT_GATE
+NEXT_ALLOWED_ACTION=HUMAN_REVIEW_OF_PTOC_PROTOCOL_V1_1_AMENDMENT_PROPOSAL
 ```
 
 ## ⓪ Overall Research Objective
@@ -55,7 +55,7 @@ target-only, supervised, high-observability reference。
 |---|---|---|---|---|
 | ① | ROOT Freeze | PASS | ROOT freeze PASS | ② |
 | ② | Research Governance | PASS | `METHODOLOGY_BENCHMARK_GATE=PASS_FOR_PLANNING` | ③ |
-| ③ | PTOC Pre-Experiment Gate | BLOCKED | G2 unresolved; B0007 strict matched-cycle rule fails | HUMAN_REVIEW |
+| ③ | PTOC Pre-Experiment Gate | BLOCKED | G2 partial collision acceptable; V1 pairing fails; v1.1 amendment awaits human review | HUMAN_REVIEW |
 | ④ | PTOC Development Experiment | BLOCKED | Requires ③ PASS + human authorization | ⑤ |
 | ⑤ | External Validation | BLOCKED | Requires ④ PASS + human authorization | ⑥ |
 | ⑥ | Robustness & Necessary Controls | BLOCKED | Requires ⑤ PASS + human authorization | ⑦ |
@@ -323,6 +323,24 @@ FINAL_STATUS=BLOCKED
 KEY_RESULT=External source eligibility is documented, but direct-method novelty remains unresolved and B0007 has only 31/67 strict immediate charge/discharge pairs.
 FAILED_OR_UNRESOLVED_ITEMS=G2 direct-collision verification remains pending; MATCHED_CYCLE fails under the predeclared strict pair rule; no L1/L2/L3 performance evidence exists.
 DECISION=Do not run PTOC experiments. Any proposal to change the pair rule requires explicit human review and master-plan change control.
+```
+
+### POST-COMPLETION AMENDMENT — PTOC-003-AMENDMENT-001
+
+```text
+AMENDMENT_ID=PTOC-003-AMENDMENT-001
+DATE=2026-09-03
+TRIGGER=Label-free reconstruction found that “31/67” mixed whole-file strict-pair count with the 67 historical development candidates.
+DISCOVERED_DURING_PHASE=③ PTOC Pre-Experiment Gate
+AFFECTED_COMPLETED_PHASE=③ PTOC Pre-Experiment Gate
+ORIGINAL_DECISION=Keep Phase ③ BLOCKED; do not run PTOC experiments under strict immediate adjacency.
+NEW_EVIDENCE=Exact historical-candidate mapping is 23/67 immediate pairs, 42 impedance-only intermediaries and 2 intervening-charge ambiguities; G2 is ACCEPTABLE_PARTIAL_COLLISION rather than PENDING.
+WHAT_CHANGED=Blocker characterization and next allowed action: human review of a v1.1 design-only amendment proposal.
+WHAT_DID_NOT_CHANGE=ROOT remains frozen; no model/metric/test/validation label was loaded; PTOC v1 remains non-executable; Phase ④ remains blocked.
+DOWNSTREAM_IMPACT=No phase advancement. If approved, a new Decision Record and immutable protocol v1.1 are required before any Phase ④ authorization.
+REQUIRES_REOPENING=True
+REOPENING_STATUS=BLOCKED_PENDING_HUMAN_PROTOCOL_AMENDMENT_DECISION
+GIT_COMMIT=PENDING_CURRENT_AUDIT_ARCHIVE
 ```
 
 ---

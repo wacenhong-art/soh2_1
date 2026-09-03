@@ -1,0 +1,19 @@
+{
+  "audit": "PTOC_B0007_PAIRING_TAXONOMY_V1",
+  "scope": "development-side raw event ordering and waveform metadata only",
+  "development_candidate_count": 67,
+  "test_label_loaded": false,
+  "capacity_values_read": false,
+  "selection_definition": "first 67 charge records that satisfy frozen charge event and have a later valid discharge; capacity values are never accessed",
+  "taxonomy_definition": {
+    "IMMEDIATE_VALID_DISCHARGE": "next raw record is a valid discharge",
+    "INTERVENING_IMPEDANCE_ONLY_THEN_VALID_DISCHARGE": "only impedance records occur before the first later valid discharge and no later charge intervenes",
+    "INTERVENING_CHARGE_BEFORE_DISCHARGE": "another charge occurs before the first later valid discharge",
+    "INTERVENING_NONCANONICAL_OPERATION": "a non-impedance operation occurs without an intervening charge"
+  },
+  "counts": {
+    "IMMEDIATE_VALID_DISCHARGE": 23,
+    "INTERVENING_CHARGE_BEFORE_DISCHARGE": 2,
+    "INTERVENING_IMPEDANCE_ONLY_THEN_VALID_DISCHARGE": 42
+  }
+}
