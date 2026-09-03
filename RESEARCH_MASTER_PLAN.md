@@ -355,7 +355,7 @@ CORRECT_CLASSIFICATION=CURRENT_PHASE_BLOCKER_AND_PROVENANCE_UPDATE
 WHAT_REMAINS_VALID=The 31/67-to-23/67 correction, pairing taxonomy, G2 result, ROOT freeze, test lock, V1 immutability and Phase ④ block.
 WHAT_DOES_NOT_FOLLOW=No model run, ROOT rerun, label access or Phase ④ authorization.
 CURRENT_PROTOCOL_DECISION=PTOC_PROTOCOL_V1_1_AMENDMENT_GATE=BLOCKED; V1.1 has not been created.
-GIT_COMMIT=PENDING_CURRENT_ARCHIVE
+GIT_COMMIT=c6f8c70
 ```
 
 ---
@@ -888,5 +888,5 @@ EVIDENCE=PTOC_PHASE3_PROTOCOL_AMENDMENT_DECISION.md; PTOC_PHASE3_BLOCKER_RESOLUT
 GATE_IMPACT=G2 remains ACCEPTABLE_PARTIAL_COLLISION; F4 remains FAIL_FOR_V1; ③ and ④ remain BLOCKED.
 DOWNSTREAM_IMPACT=No advancement. Next action is human decision on L1 reference-test semantics and external operation-adapter audit.
 APPROVED_BY=human researcher request in current task
-GIT_COMMIT=PENDING_CURRENT_ARCHIVE
+GIT_COMMIT=c6f8c70
 ```
