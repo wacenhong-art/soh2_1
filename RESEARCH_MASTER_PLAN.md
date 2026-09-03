@@ -838,5 +838,5 @@ EVIDENCE=RESEARCH_GUARDRAILS.md; S0/ROOT artifacts; DECISION_RECORD_PTOC_PRIMARY
 GATE_IMPACT=No scientific Gate changed; ③ remains NOT_STARTED and experiments remain blocked.
 DOWNSTREAM_IMPACT=All future SOH tasks must align to this plan before action.
 APPROVED_BY=human researcher request in current task
-GIT_COMMIT=PENDING
+GIT_COMMIT=743678e
 ```
