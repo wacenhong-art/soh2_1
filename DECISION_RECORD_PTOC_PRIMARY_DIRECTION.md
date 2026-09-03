@@ -137,3 +137,21 @@ NEXT_STAGE=HUMAN_REVIEW
 The Phase ③ audit did not run L1/L2/L3 performance experiments and did not
 modify ROOT. The v1.1 pairing proposal is design-only and cannot replace v1
 without human change control. See `PTOC_PHASE3_BLOCKER_RESOLUTION_1.md`.
+
+## Phase ③ protocol-amendment decision — 2026-09-03
+
+```text
+PTOC_PROTOCOL_V1_1_AMENDMENT_GATE=BLOCKED
+REASON=L1 post-charge reference-test semantics across an impedance interlude and external operation-ontology mapping are not sufficiently verified to freeze.
+PTOC_PROTOCOL_V1_1_CREATED=False
+PTOC_F4=FAIL_FOR_V1__NOT_REOPENED
+PHASE_3_STATUS=BLOCKED
+EXPERIMENT_AUTHORIZATION=BLOCKED
+TestLoaded=False
+NEXT_STAGE=HUMAN_DECISION_ON_SEMANTICS_AND_EXTERNAL_OPERATION_ADAPTER_AUDIT
+```
+
+The duplicate charge-to-discharge historical mappings are a confirmed extractor
+defect; whether either affected a particular frozen ROOT artifact is
+`UNRESOLVED`. ROOT is not invalidated and no rerun is authorized. See
+`PTOC_PHASE3_PROTOCOL_AMENDMENT_DECISION.md`.

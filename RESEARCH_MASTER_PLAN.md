@@ -17,7 +17,7 @@ PRIMARY_INNOVATION_COUNT=1
 ROOT_STATUS=FROZEN
 EXPERIMENT_AUTHORIZATION=BLOCKED_PENDING_PTOC_PRE_EXPERIMENT_GATE
 LOCKED_TEST_STATUS=NOT_LOADED
-NEXT_ALLOWED_ACTION=HUMAN_REVIEW_OF_PTOC_PROTOCOL_V1_1_AMENDMENT_PROPOSAL
+NEXT_ALLOWED_ACTION=HUMAN_DECISION_ON_L1_REFERENCE_TEST_SEMANTICS_AND_EXTERNAL_OPERATION_ADAPTER_AUDIT
 ```
 
 ## ⓪ Overall Research Objective
@@ -55,7 +55,7 @@ target-only, supervised, high-observability reference。
 |---|---|---|---|---|
 | ① | ROOT Freeze | PASS | ROOT freeze PASS | ② |
 | ② | Research Governance | PASS | `METHODOLOGY_BENCHMARK_GATE=PASS_FOR_PLANNING` | ③ |
-| ③ | PTOC Pre-Experiment Gate | BLOCKED | G2 partial collision acceptable; V1 pairing fails; v1.1 amendment awaits human review | HUMAN_REVIEW |
+| ③ | PTOC Pre-Experiment Gate | BLOCKED | G2 partial collision acceptable; V1 pairing fails; proposed v1.1 is semantically/external-schema blocked | HUMAN_REVIEW |
 | ④ | PTOC Development Experiment | BLOCKED | Requires ③ PASS + human authorization | ⑤ |
 | ⑤ | External Validation | BLOCKED | Requires ④ PASS + human authorization | ⑥ |
 | ⑥ | Robustness & Necessary Controls | BLOCKED | Requires ⑤ PASS + human authorization | ⑦ |
@@ -341,6 +341,21 @@ DOWNSTREAM_IMPACT=No phase advancement. If approved, a new Decision Record and i
 REQUIRES_REOPENING=True
 REOPENING_STATUS=BLOCKED_PENDING_HUMAN_PROTOCOL_AMENDMENT_DECISION
 GIT_COMMIT=2424fe1
+```
+
+### CURRENT-PHASE PROVENANCE CORRECTION — PTOC-003-PROVENANCE-CORRECTION-001
+
+```text
+CORRECTION_ID=PTOC-003-PROVENANCE-CORRECTION-001
+DATE=2026-09-03
+CORRECTS_CLASSIFICATION_OF=PTOC-003-AMENDMENT-001
+POST_COMPLETION_AMENDMENT_STATUS=MISCLASSIFIED
+REASON=The current register identifies Phase ③ as BLOCKED and Phase ② as the last completed phase. A blocked current phase cannot be a post-completion-amendment target.
+CORRECT_CLASSIFICATION=CURRENT_PHASE_BLOCKER_AND_PROVENANCE_UPDATE
+WHAT_REMAINS_VALID=The 31/67-to-23/67 correction, pairing taxonomy, G2 result, ROOT freeze, test lock, V1 immutability and Phase ④ block.
+WHAT_DOES_NOT_FOLLOW=No model run, ROOT rerun, label access or Phase ④ authorization.
+CURRENT_PROTOCOL_DECISION=PTOC_PROTOCOL_V1_1_AMENDMENT_GATE=BLOCKED; V1.1 has not been created.
+GIT_COMMIT=PENDING_CURRENT_ARCHIVE
 ```
 
 ---
@@ -857,4 +872,21 @@ GATE_IMPACT=No scientific Gate changed; ③ remains NOT_STARTED and experiments 
 DOWNSTREAM_IMPACT=All future SOH tasks must align to this plan before action.
 APPROVED_BY=human researcher request in current task
 GIT_COMMIT=743678e
+```
+
+## PLAN-CHANGE-0002
+
+```text
+DATE=2026-09-03
+TRIGGER=Protocol-amendment audit found a current Phase ③ evidence entry was misclassified as a post-completion amendment.
+CURRENT_PHASE=③ PTOC PRE-EXPERIMENT GATE
+CHANGED_SECTION=Phase ③ provenance classification and next-action description.
+OLD_PLAN_SUMMARY=PTOC-003-AMENDMENT-001 was labelled POST-COMPLETION AMENDMENT and named ③ as an affected completed phase.
+NEW_PLAN_SUMMARY=The old record is preserved; PTOC-003-PROVENANCE-CORRECTION-001 records a current-phase blocker/provenance update. V1.1 remains blocked, not frozen.
+RATIONALE=Correct provenance without weakening any gate or treating a blocked phase as completed.
+EVIDENCE=PTOC_PHASE3_PROTOCOL_AMENDMENT_DECISION.md; PTOC_PHASE3_BLOCKER_RESOLUTION_1.md; current status register.
+GATE_IMPACT=G2 remains ACCEPTABLE_PARTIAL_COLLISION; F4 remains FAIL_FOR_V1; ③ and ④ remain BLOCKED.
+DOWNSTREAM_IMPACT=No advancement. Next action is human decision on L1 reference-test semantics and external operation-adapter audit.
+APPROVED_BY=human researcher request in current task
+GIT_COMMIT=PENDING_CURRENT_ARCHIVE
 ```

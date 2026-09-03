@@ -122,6 +122,17 @@ MATCHED_CYCLE=FAIL
 The pairing rule is not relaxed here. Any future change requires explicit human
 approval and `MASTER_PLAN_CHANGE_REQUIRED=True`.
 
+### Post-audit denominator correction — 2026-09-03
+
+This preserves the original V1 whole-file metadata audit, which reported B0007
+`31/67`. A later label-free provenance audit established that `31` counts
+strict immediate pairs while scanning the whole raw file, whereas `67` is
+ROOT's historical development-candidate denominator. The
+denominator-matched strict V1 result is `23/67`, not `31/67`. This corrects
+only the comparison statement: it does not relax V1, recompute ROOT, access a
+label, or authorize a performance experiment. See
+`PTOC_PHASE3_PROTOCOL_AMENDMENT_DECISION.md`.
+
 ## ③-F — External dataset manifest
 
 No external data were downloaded or run. Source eligibility only:
