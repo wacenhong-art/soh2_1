@@ -179,3 +179,31 @@ model fit, validation/test access, or Phase ④. The unavailable historical
 `dc931f7` object prevents a direct source-equivalence claim; the recovered
 static chain creates a provenance risk that requires human governance before a
 ROOT-dependent experiment.
+
+## Phase ③ ROOT source-artifact provenance resolution — 2026-09-03
+
+```text
+ROOT_PROVENANCE_AUDIT_AUTHORIZED=True
+ROOT_PROVENANCE_EVIDENCE_LEVEL=PROVENANCE_LEVEL_A
+EXTRACTION_FROM_DC931F7_VERIFIED=True
+BUG_EXISTS_IN_EXTRACTOR=True
+BUG_ACTUALLY_EXECUTED_IN_FROZEN_ROOT_ROWS=True
+ROOT_PAIRING_BUG_IMPACT=CONFIRMED_AFFECTS_ROOT_INPUT_ROWS
+ROOT_REOPENING_REQUIRED=True
+ROOT_STATUS=FROZEN__REOPENING_REQUIRED
+HISTORICAL_DC931F7_STATUS=CONFIRMED_AFFECTED_INPUT_ROWS
+CLEAN_S0_STATUS=CONFIRMED_AFFECTED_INPUT_ROWS__NO_METRIC_REASSESSMENT
+CURRENT_ROOT_REFERENCE_STATUS=REOPENING_REQUIRED
+PTOC_F4=FAIL_FOR_V1__NOT_REOPENED
+PTOC_PROTOCOL_V1_1_CREATED=False
+PHASE_3_STATUS=BLOCKED
+EXPERIMENT_AUTHORIZATION=BLOCKED
+NEXT_STAGE=HUMAN_REVIEW_BEFORE_ROOT_REPAIR
+TestLoaded=False
+```
+
+The exact historical input artifact (not merely current extraction code) has
+one B0007 duplicate group: charge records 22 and 23 both map to discharge
+record 24. This is input-provenance evidence, not a new SOH-performance claim.
+The mandatory Phase ① post-completion amendment is recorded in
+`RESEARCH_MASTER_PLAN.md`; no repair or rerun is authorized.

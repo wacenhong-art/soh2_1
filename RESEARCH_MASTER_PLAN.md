@@ -14,10 +14,10 @@ LAST_COMPLETED_PHASE=② RESEARCH GOVERNANCE
 LAST_COMPLETED_GATE=METHODOLOGY_BENCHMARK_GATE=PASS_FOR_PLANNING
 PRIMARY_INNOVATION=PTOC
 PRIMARY_INNOVATION_COUNT=1
-ROOT_STATUS=FROZEN
+ROOT_STATUS=FROZEN__REOPENING_REQUIRED
 EXPERIMENT_AUTHORIZATION=BLOCKED_PENDING_PTOC_PRE_EXPERIMENT_GATE
 LOCKED_TEST_STATUS=NOT_LOADED
-NEXT_ALLOWED_ACTION=HUMAN_GOVERNANCE_DECISION_ON_ROOT_PROVENANCE_RECONCILIATION_THEN_REASSESS_PROTOCOL_AMENDMENT_GATE
+NEXT_ALLOWED_ACTION=HUMAN_REVIEW_BEFORE_ROOT_REPAIR
 ```
 
 ## ⓪ Overall Research Objective
@@ -977,5 +977,41 @@ EVIDENCE=PTOC_PHASE3_BLOCKER_RESOLUTION_2.md; output/ptoc_phase3_blocker_resolut
 GATE_IMPACT=G2 remains ACCEPTABLE_PARTIAL_COLLISION; F4 remains FAIL_FOR_V1; F6 is unchanged; Phase ③ and ④ remain BLOCKED.
 DOWNSTREAM_IMPACT=No model or protocol execution is authorized. A future ROOT reopening, if approved, must use a Phase ① post-completion amendment rather than overwrite Phase ① PASS.
 APPROVED_BY=human researcher request in current task
+GIT_COMMIT=PENDING
+```
+
+### POST-COMPLETION AMENDMENT — ROOT-001-PROVENANCE-001
+
+```text
+AMENDMENT_ID=ROOT-001-PROVENANCE-001
+DATE=2026-09-03
+TRIGGER=Human-authorized label-safe source-artifact audit resolved the previous ROOT pairing-risk status.
+DISCOVERED_DURING_PHASE=③ PTOC Pre-Experiment Gate
+AFFECTED_COMPLETED_PHASE=① ROOT Freeze
+ORIGINAL_DECISION=Retain the recovered strong S0 only as a frozen high-observability reference; Phase ① remained PASS.
+NEW_EVIDENCE=The original soh02@dc931f7 extractor and its tracked frozen_raw_features.csv are available. The current recovery artifact is byte-identical to the dc931f7 artifact, and its provenance-only columns show B0007 charge records 22 and 23 both assigned to discharge record 24.
+AFFECTED_SCOPE=Input-row provenance only: 118 frozen ROOT rows contain 117 unique battery-qualified discharge records and one duplicated B0007 discharge assignment involving two rows.
+WHAT_REMAINS_VALID=Phase ① historical completion status, its documented post-completed-discharge interpretation, test lock, model/feature freeze history, and the fact that no new performance result was calculated.
+WHAT_REQUIRES_RECHECK=The scientific acceptability of ROOT as an unqualified L3 empirical reference; any repair/re-extraction/retraining or metric reassessment requires separate human authorization and a new controlled decision record.
+DOWNSTREAM_IMPACT=Phase ③ remains BLOCKED; PTOC Protocol v1.1 remains absent and Phase ④ remains prohibited. ROOT-dependent PTOC work may not proceed until human review decides the repair path.
+REQUIRES_REOPENING=True
+REOPENING_STATUS=HUMAN_REVIEW_BEFORE_ROOT_REPAIR
+GIT_COMMIT=PENDING
+```
+
+## PLAN-CHANGE-0005
+
+```text
+DATE=2026-09-03
+TRIGGER=Confirmed Level-A source-artifact evidence requires a completed-phase governance record for ROOT Freeze.
+CURRENT_PHASE=③ PTOC PRE-EXPERIMENT GATE
+CHANGED_SECTION=Current ROOT status and next-action register; adds ROOT-001-PROVENANCE-001 without altering Phase ① historical PASS.
+OLD_PLAN_SUMMARY=ROOT was frozen with an unresolved likely input-row pairing risk and the next action was provenance reconciliation.
+NEW_PLAN_SUMMARY=The dc931f7 artifact confirms a duplicate discharge assignment in two B0007 frozen input rows. ROOT stays frozen but requires reopening governance; the next action is human review before repair.
+RATIONALE=The change records a confirmed provenance fact only. It does not repair ROOT, rerun a model, calculate a metric, open tests, create v1.1, or advance Phase ③.
+EVIDENCE=ROOT_PAIRING_PROVENANCE_AUDIT.md; output/root_pairing_provenance_audit/root_historical_pairing_map.json; artifact_inventory.json; old repository commit dc931f71be6f92f2895a7b1c26aa3158d3359fab.
+GATE_IMPACT=G2 remains ACCEPTABLE_PARTIAL_COLLISION; PTOC F4 remains FAIL_FOR_V1; F6 is unchanged; Phase ③ and ④ remain BLOCKED.
+DOWNSTREAM_IMPACT=Human review is required before a Phase ① repair/recheck. No PTOC amendment reconsideration or performance experiment is authorized now.
+APPROVED_BY=human researcher authorization in PHASE_3_ROOT_PROVENANCE_RESOLUTION__LABEL_SAFE_SOURCE_ARTIFACT_AUDIT
 GIT_COMMIT=PENDING
 ```

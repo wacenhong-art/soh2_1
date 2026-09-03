@@ -1,0 +1,18 @@
+{
+  "frozen_feature_artifact": "output\\feature_adequacy_reassessment_v1\\frozen_raw_features.csv",
+  "taxonomy_artifact": "output\\ptoc_phase3_blocker_resolution_1\\b0007_pairing_taxonomy.csv",
+  "source_columns_read": [
+    "Battery",
+    "TestLoaded",
+    "RawChargeCycleIndex",
+    "RawDischargeCycleIndex"
+  ],
+  "source_columns_not_read": [
+    "SOH",
+    "DISCHARGE_DURATION_S",
+    "DISCHARGE_ENERGY_WH",
+    "all other F1 features"
+  ],
+  "test_loaded": false,
+  "artifact_status": "AVAILABLE_AND_LABEL_SAFE_PROJECTED"
+}
