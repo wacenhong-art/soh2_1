@@ -960,5 +960,5 @@ EVIDENCE=Human researcher instruction in this task; current Phase ③ status reg
 GATE_IMPACT=No scientific result, Phase ①/② completion record, Phase ③ blocker, ROOT status, test policy or experiment authorization changed.
 DOWNSTREAM_IMPACT=Phase ④ remains blocked. Future research closes at ⑨; no manuscript/submission action can be reached inside this plan.
 APPROVED_BY=human researcher request in current task
-GIT_COMMIT=PENDING_CURRENT_ARCHIVE
+GIT_COMMIT=de5707b
 ```
