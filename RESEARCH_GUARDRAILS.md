@@ -58,6 +58,33 @@ EXPERIMENTAL_WORK_COMPLETE
 EXPERIMENT_NOT_AUTHORIZED
 ```
 
+### 2.1 `METHODOLOGY_BENCHMARK_GATE`（独立问题入口）
+
+本 Gate **不修改**模型/算法研究的 G1，也不构成对 G1–G7 的普遍豁免。只有研究对象本身是
+evaluation validity、comparability、observability 或 deployment eligibility 的 methodology /
+benchmark 问题时，才可作为其 `PROBLEM` 入口；它不能被用来把未观察到的 predictive-model
+failure 事后改写为 failure。
+
+在任何 methodology / benchmark 实验或实现前，Decision Record 必须同时证明：
+
+1. 已在实验前文档中记录一个具体、可审计的 evaluation-validity、comparability、
+   observability 或 deployment-eligibility 问题；“有趣”“信息更多”或泛泛的 reporting 缺失
+   不是充分问题定义；
+2. 研究问题直接检验该已记录问题，而不是借 methodology 名义更换模型、目标、数据或性能指标；
+3. baseline、target definition、split policy、leakage controls、locked-test policy 与 protocol
+   isolation 均被冻结；
+4. G2–G7 仍完整适用，且 hypothesis、success/failure/stop criteria 在实验前被冻结到不可事后
+   替换的 Decision Record；
+5. 任何通用 methodology claim 必须预先规定独立 target 或第二数据集的 external validation；
+   NASA-only 结果最多是 development evidence；
+6. novelty、semantic validity、matched comparability、external-validation feasibility 任一项失败时，
+   必须按预注册停止该方向；
+7. 本 Gate 仅允许完成后续 `PRE_EXPERIMENT_GATE` 的规划审查，绝不自动授权训练、validation/test
+   access、protocol drift、target redefinition 或新模型搜索。
+
+`METHODOLOGY_BENCHMARK_GATE` 不能授权 fabricated failure、after-the-fact hypothesis、test
+access，或任何降低 G3/G5/G6 要求的行为。
+
 ## 3. 七条硬红线
 
 1. 不得根据 B0007/B0018 validation 结果反复重设计 source-selection score。
@@ -148,6 +175,10 @@ generalization，除非完成被冻结方法的独立外部验证。
 ## 8. 当前授权状态
 
 当前没有已授权的新模型、网格、score 或训练实验。locked test 保持禁止读取。
+
+已通过的 `METHODOLOGY_BENCHMARK_GATE` 只可授权 methodology planning；它不改变本节的训练、
+locked-test 和 protocol-isolation 禁令。任何 PTOC 实验仍须先完成独立、完整的
+`PTOC_PRE_EXPERIMENT_GATE`。
 
 唯一受限的未来可能性是：`CLOSED_PARTIAL` prefix-supervised screening 的完全不变协议，
 在独立新 target/外部数据上进行一次有新 Decision Record 的 external confirmation。
