@@ -9,7 +9,7 @@
 
 ```text
 CURRENT_PHASE=③ PTOC PRE-EXPERIMENT GATE
-CURRENT_PHASE_STATUS=NOT_STARTED
+CURRENT_PHASE_STATUS=BLOCKED
 LAST_COMPLETED_PHASE=② RESEARCH GOVERNANCE
 LAST_COMPLETED_GATE=METHODOLOGY_BENCHMARK_GATE=PASS_FOR_PLANNING
 PRIMARY_INNOVATION=PTOC
@@ -55,7 +55,7 @@ target-only, supervised, high-observability reference。
 |---|---|---|---|---|
 | ① | ROOT Freeze | PASS | ROOT freeze PASS | ② |
 | ② | Research Governance | PASS | `METHODOLOGY_BENCHMARK_GATE=PASS_FOR_PLANNING` | ③ |
-| ③ | PTOC Pre-Experiment Gate | NOT_STARTED | Pending | ④ |
+| ③ | PTOC Pre-Experiment Gate | BLOCKED | G2 unresolved; B0007 strict matched-cycle rule fails | HUMAN_REVIEW |
 | ④ | PTOC Development Experiment | BLOCKED | Requires ③ PASS + human authorization | ⑤ |
 | ⑤ | External Validation | BLOCKED | Requires ④ PASS + human authorization | ⑥ |
 | ⑥ | Robustness & Necessary Controls | BLOCKED | Requires ⑤ PASS + human authorization | ⑦ |
@@ -229,7 +229,7 @@ DECISION=Open PTOC planning only; block all PTOC performance experiments pending
 
 ### STATUS
 
-`NOT_STARTED`
+`BLOCKED`
 
 ### OBJECTIVE
 
@@ -317,12 +317,12 @@ requires explicit human researcher authorization before ④.
 ### COMPLETION RECORD
 
 ```text
-COMPLETED_DATE=NOT_APPLICABLE
-COMPLETED_COMMIT=NOT_APPLICABLE
-FINAL_STATUS=NOT_STARTED
-KEY_RESULT=NOT_APPLICABLE
-FAILED_OR_UNRESOLVED_ITEMS=All mandatory pre-experiment gates pending.
-DECISION=Do not run PTOC experiments.
+COMPLETED_DATE=2026-09-03
+COMPLETED_COMMIT=PENDING_CURRENT_GATE_ARCHIVE
+FINAL_STATUS=BLOCKED
+KEY_RESULT=External source eligibility is documented, but direct-method novelty remains unresolved and B0007 has only 31/67 strict immediate charge/discharge pairs.
+FAILED_OR_UNRESOLVED_ITEMS=G2 direct-collision verification remains pending; MATCHED_CYCLE fails under the predeclared strict pair rule; no L1/L2/L3 performance evidence exists.
+DECISION=Do not run PTOC experiments. Any proposal to change the pair rule requires explicit human review and master-plan change control.
 ```
 
 ---

@@ -1,0 +1,31 @@
+{
+  "audit": "PTOC_MATCHED_CYCLE_METADATA_AUDIT_V1",
+  "scope": "development prefix raw event metadata only",
+  "test_label_loaded": false,
+  "capacity_values_read": false,
+  "pairing_rule": "qualifying charge must be immediately followed by qualifying discharge",
+  "event_rules": {
+    "charge": "V>=4.2 then abs(I)<=0.02",
+    "discharge": "first V<=4.0 then later first V<=3.6"
+  },
+  "summaries": [
+    {
+      "battery": "B0007",
+      "required_valid_rows": 67,
+      "eligible_rows_found": 31,
+      "metadata_audit_pass": false,
+      "test_label_loaded": false,
+      "capacity_values_read": false,
+      "stopped_after_required_rows": false
+    },
+    {
+      "battery": "B0018",
+      "required_valid_rows": 51,
+      "eligible_rows_found": 51,
+      "metadata_audit_pass": true,
+      "test_label_loaded": false,
+      "capacity_values_read": false,
+      "stopped_after_required_rows": true
+    }
+  ]
+}
