@@ -1,5 +1,12 @@
 # Git 自动存档规则
 
+## 总路线图入口
+
+任何 SOH 研究、代码、实验、审计、Git 或论文任务开始时，必须依序阅读
+`RESEARCH_GUARDRAILS.md`、`RESEARCH_MASTER_PLAN.md`，然后检查 Git HEAD 与工作树状态。
+在采取行动前，必须报告 Master Plan Alignment；具体字段、Phase 范围、变更控制与晋级规则以
+`RESEARCH_MASTER_PLAN.md` 为准。科研安全和实验授权仍以 `RESEARCH_GUARDRAILS.md` 为最高来源。
+
 ## 研究实验红线
 
 在启动任何新的 research experiment、模型修改、迁移方法、source-selection
