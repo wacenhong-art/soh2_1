@@ -1,6 +1,6 @@
 # SOH Research Master Plan
 
-> Version: `1.0.0`  
+> Version: `1.1.0`
 > Status source: `RESEARCH_GUARDRAILS.md` remains the highest authority for
 > research safety and experimental authorization. This document is the durable
 > route map, phase-state register, and change-control record.
@@ -23,9 +23,9 @@ NEXT_ALLOWED_ACTION=HUMAN_DECISION_ON_L1_REFERENCE_TEST_SEMANTICS_AND_EXTERNAL_O
 ## ⓪ Overall Research Objective
 
 围绕已经冻结的 ROOT 强基线，只保留一个主创新点：
-`Prediction-Time Observability Contract (PTOC)`。目标是形成一篇
-protocol-rigorous、reproducible、falsifiable、deployment-interpretable 且
-externally validated 的 SOH methodology paper。
+`Prediction-Time Observability Contract (PTOC)`。本计划的目标是完成一轮
+严格、可复现、可证伪、协议清晰且具有部署解释价值的 SOH 方法学研究开发周期；它的
+终点是完整研究成果和独立的 Paper Readiness 判断，不是论文写作或投稿。
 
 ```text
 PRIMARY_INNOVATION_COUNT=1
@@ -33,7 +33,7 @@ PRIMARY_INNOVATION=PTOC
 ROOT_STATUS=FROZEN
 ```
 
-主论文故事：
+研究逻辑：
 
 ```text
 ROOT
@@ -49,6 +49,13 @@ ROOT
 ROOT 不是 PTOC method，也不是 paper-method reproduction。它是一个 strong,
 target-only, supervised, high-observability reference。
 
+```text
+RESEARCH_PLAN_ENDPOINT=RESEARCH_COMPLETE + PAPER_READINESS_DECISION
+RESEARCH_COMPLETION_DOES_NOT_IMPLY_PAPER_READINESS=True
+PAPER_READINESS_DOES_NOT_IMPLY_MANUSCRIPT_AUTHORIZATION=True
+CURRENT_RESEARCH_MASTER_PLAN_CONTAINS_NO_MANUSCRIPT_WRITING=True
+```
+
 ## PHASE PROGRESS
 
 | Symbol | Phase | Status | Gate | Next |
@@ -59,9 +66,9 @@ target-only, supervised, high-observability reference。
 | ④ | PTOC Development Experiment | BLOCKED | Requires ③ PASS + human authorization | ⑤ |
 | ⑤ | External Validation | BLOCKED | Requires ④ PASS + human authorization | ⑥ |
 | ⑥ | Robustness & Necessary Controls | BLOCKED | Requires ⑤ PASS + human authorization | ⑦ |
-| ⑦ | Paper Evidence Freeze | BLOCKED | Requires ⑥ PASS + human authorization | ⑧ |
-| ⑧ | Manuscript | BLOCKED | Requires ⑦ PASS + human authorization | ⑨ |
-| ⑨ | Final Research Integrity Audit | BLOCKED | Requires ⑧ PASS | `SUBMISSION_READY` |
+| ⑦ | Research Outcome Freeze | BLOCKED | Requires ⑥ PASS + human authorization | ⑧ |
+| ⑧ | Research Completion Audit | BLOCKED | Requires ⑦ PASS + human authorization | ⑨ |
+| ⑨ | Paper Readiness Gate | BLOCKED | Requires ⑧ PASS + human authorization | NONE_WITHIN_CURRENT_RESEARCH_MASTER_PLAN |
 
 ## FROZEN PROJECT CONSTRAINTS
 
@@ -75,6 +82,14 @@ LOCKED_TEST_DEFAULT=NOT_LOADED
 NO_FORCE_PUSH=True
 NO_HARD_RESET=True
 NO_HISTORY_REWRITE=True
+RESEARCH_COMPLETION_DOES_NOT_IMPLY_PAPER_READINESS=True
+PAPER_READINESS_DOES_NOT_IMPLY_MANUSCRIPT_AUTHORIZATION=True
+CURRENT_RESEARCH_MASTER_PLAN_CONTAINS_NO_MANUSCRIPT_WRITING=True
+MANUSCRIPT_WRITING_REQUIRES_SEPARATE_MASTER_PLAN=True
+MANUSCRIPT_MASTER_PLAN_REQUIRES_HUMAN_AUTHORIZATION=True
+NEGATIVE_RESULTS_ARE_VALID_RESEARCH_OUTCOMES=True
+DO_NOT_ADD_SECOND_INNOVATION_TO_RESCUE_PAPER_READINESS=True
+DO_NOT_RUN_UNPLANNED_EXPERIMENTS_TO_RESCUE_PAPER_READINESS=True
 ```
 
 Changing any frozen constraint requires `MASTER_PLAN_CHANGE_REQUIRED=True`, a
@@ -554,7 +569,7 @@ Control protocol, results, provenance, limitations update, Git commit.
 
 ### NEXT PHASE
 
-⑦ Paper Evidence Freeze.
+⑦ Research Outcome Freeze.
 
 ### COMPLETION RECORD
 
@@ -569,7 +584,7 @@ DECISION=NOT_APPLICABLE
 
 ---
 
-## ⑦ Paper Evidence Freeze
+## ⑦ Research Outcome Freeze
 
 ### STATUS
 
@@ -577,50 +592,53 @@ DECISION=NOT_APPLICABLE
 
 ### OBJECTIVE
 
-Freeze evidence before manuscript writing so the paper cannot be shaped by
-post-hoc protocol changes.
-
-### SCIENTIFIC QUESTION
-
-Is every eventual claim traced to a frozen, reproducible and appropriately
-scoped artifact?
+Freeze the complete result of this SOH/PTOC research cycle, independently of
+whether any future paper is warranted. The output is a complete,
+auditable, reproducible `RESEARCH_OUTCOME_PACKAGE`.
 
 ### INPUTS
 
 ⑥ PASS and human authorization.
 
-### ALLOWED
+### REQUIRED TASKS
 
-Provenance and claim/evidence audit; freeze final protocol, manifests, code
-commits, metrics, figures, tables, failures and dataset versions.
+- Freeze final PTOC protocol, code commit, feature definitions, model-control
+  configuration, dataset/split/protocol manifests and dataset versions.
+- Archive final metrics, uncertainty/statistical results, matched-cycle rules,
+  external validation, sensitivity analyses, controls, figures, tables and raw
+  result artifacts.
+- Preserve failure cases, rejected hypotheses, negative results, amendments,
+  unresolved issues, reproducibility instructions and Git references.
+- Create a claim-evidence inventory and a limitation inventory. These are
+  research artifacts, not manuscript prose.
 
 ### FORBIDDEN
 
-Changing experiments to improve the paper story or excluding unfavourable
-results.
-
-### REQUIRED TASKS
-
-Create claim/evidence mapping and a reproducibility inventory.
+Leaving planned work unfinished to improve a future story, excluding adverse
+results, or adding unplanned experiments/innovation to rescue paper potential.
 
 ### GATES
 
-- `EVIDENCE_TRACEABILITY`: all claims have frozen evidence.
-- `NEGATIVE_RESULT_INCLUSION`: known failures are represented.
-- `REPRODUCIBILITY`: config/data/code provenance is complete.
+- `OUTCOME_TRACEABILITY`: all positive and negative conclusions link to frozen
+  artifacts.
+- `OUTCOME_COMPLETENESS`: every planned experiment, validation and necessary
+  control is closed or formally recorded as blocked/not supported.
+- `REPRODUCIBILITY`: code/data/config/protocol/Git provenance is complete.
 
 ### REQUIRED OUTPUTS
 
-Evidence-freeze record, claim/evidence matrix, artifact manifest and Git
-commit.
+`RESEARCH_OUTCOME_PACKAGE`, final protocol and manifests, final results,
+claim-evidence inventory, limitation inventory, reproducibility instructions
+and Git archive.
 
 ### ADVANCEMENT CONDITION
 
+All research-plan experiments, validations, controls and records are closed.
 ⑦ PASS plus human authorization is required for ⑧.
 
 ### NEXT PHASE
 
-⑧ Manuscript.
+⑧ Research Completion Audit.
 
 ### COMPLETION RECORD
 
@@ -635,7 +653,7 @@ DECISION=NOT_APPLICABLE
 
 ---
 
-## ⑧ Manuscript
+## ⑧ Research Completion Audit
 
 ### STATUS
 
@@ -643,49 +661,45 @@ DECISION=NOT_APPLICABLE
 
 ### OBJECTIVE
 
-Write the methodology paper from frozen evidence with exactly one primary
-contribution.
-
-### SCIENTIFIC QUESTION
-
-Can the evidence support the PTOC research question at its authorized scope?
+Determine whether this research/code/experiment cycle is actually complete.
+This is not a paper review and it cannot draft a manuscript.
 
 ### INPUTS
 
 ⑦ PASS and human authorization.
 
-### ALLOWED
-
-Draft and revise the following structure: Introduction; Related Work; Problem
-Formulation; Prediction-Time Observability Contract; Experimental Protocol;
-Results; Discussion; Limitations; Conclusion.
-
-### FORBIDDEN
-
-Adding a second contribution, claiming novelty without verified citation
-evidence, or silently revising frozen results/protocols.
-
 ### REQUIRED TASKS
 
-Maintain one contribution statement and cite only verified sources.
+Audit: code completeness; frozen protocol; mandatory experiments; external
+validation; necessary controls; reproducibility; protocol drift; hidden
+leakage; test contamination; selective reporting; failure/negative-result
+retention; Git history; ROOT freeze; locked-test policy; one-innovation limit;
+uncompleted required work; implementation/protocol agreement; data-version
+traceability; and unexplained result discrepancies.
 
 ### GATES
 
-- `ONE_PRIMARY_CONTRIBUTION`: PASS only if all sections support PTOC alone.
-- `CLAIM_SCOPE`: PASS only if claims match evidence and external validation.
-- `CITATION_INTEGRITY`: FAIL on unsupported novelty/future-work assertions.
+- `RESEARCH_COMPLETENESS`: PASS only if all required work is completed or
+  formally closed with evidence.
+- `INTEGRITY_AND_CONSISTENCY`: PASS only if no hidden leakage, test
+  contamination, selective reporting, protocol drift or implementation mismatch
+  is found.
+- `REPRODUCIBILITY_AND_HISTORY`: PASS only with traceable artifacts and Git
+  provenance.
 
 ### REQUIRED OUTPUTS
 
-Manuscript source, reference audit, claim/evidence crosswalk, Git commit.
+Research-completion audit, integrity checklist, outstanding-work register and
+`RESEARCH_COMPLETION_STATUS=PASS/FAIL/BLOCKED`.
 
 ### ADVANCEMENT CONDITION
 
-⑧ PASS is required before ⑨.
+`RESEARCH_COMPLETION_STATUS=PASS`; ⑧ PASS plus human authorization is required
+for ⑨.
 
 ### NEXT PHASE
 
-⑨ Final Research Integrity Audit.
+⑨ Paper Readiness Gate.
 
 ### COMPLETION RECORD
 
@@ -700,7 +714,7 @@ DECISION=NOT_APPLICABLE
 
 ---
 
-## ⑨ Final Research Integrity Audit
+## ⑨ Paper Readiness Gate
 
 ### STATUS
 
@@ -708,52 +722,67 @@ DECISION=NOT_APPLICABLE
 
 ### OBJECTIVE
 
-Perform final independent integrity and evidence review before a
-`SUBMISSION_READY` decision.
-
-### SCIENTIFIC QUESTION
-
-Do the final claims, data boundaries, citations, protocol, Git history and
-contribution count withstand a full adversarial audit?
+Independently decide whether the completed research outcome is sufficient to
+justify a future, separately authorized writing phase. This phase writes no
+paper text and performs no submission work.
 
 ### INPUTS
 
-⑧ PASS and frozen manuscript/evidence artifacts.
+⑧ PASS, the frozen `RESEARCH_OUTCOME_PACKAGE`, and human authorization.
 
-### ALLOWED
+### REQUIRED TASKS AND GATES
 
-Read-only audit of novelty claims, citations, leakage, locked test, protocol
-drift, target semantics, reproducibility, Git history, external validation and
-claim/evidence mapping.
+- `NOVELTY_READINESS`: recheck direct collision, nearest work, methodology
+  overlap, incremental/checklist/name-change risk and reviewer defensibility.
+- `SCIENTIFIC_RESULT_STRENGTH`: reject a story that only establishes
+  “more information gives better accuracy.”
+- `EXTERNAL_VALIDITY`: verify non-NASA-specific contract execution,
+  matched-cycle portability, target semantics and deployment interpretation.
+- `EVIDENCE_COMPLETENESS`: every claim must have corresponding evidence;
+  unfinished work and promotional inference are not evidence.
+- `STORY_COHERENCE`: the evidence must support problem -> methodology ->
+  falsifiable hypothesis -> controlled experiment -> external validation ->
+  conclusion without hiding failures or exaggerating novelty.
+- `VENUE_LEVEL_POTENTIAL`: conservatively classify only
+  `NOT_PAPER_READY`, `WORKSHOP_LEVEL`, `LOWER_TIER_JOURNAL_POTENTIAL`,
+  `SOLID_JOURNAL_POTENTIAL`, or `STRONG_JOURNAL_POTENTIAL`; never add an
+  innovation or experiment to inflate this result.
+- `REVIEWER_ATTACK`: examine whether PTOC is method or naming, checklist risk,
+  information-triviality, matched-cycle fairness, ROOT capacity-adjacent
+  dependence, timing clarity, external adequacy, dataset-specific processing,
+  hindsight adjustment, degrees of freedom, independent-paper value, and
+  whether the research remains complete without a paper.
 
 ### FORBIDDEN
 
-New experiments, silent manuscript/result edits, new innovation, history
-rewrite, or hiding adverse results.
-
-### REQUIRED TASKS
-
-Use appropriate research-integrity review; verify contribution count, data
-provenance and all paper claims.
-
-### GATES
-
-- `FINAL_INTEGRITY`: PASS only if all evidence and citation boundaries hold.
-- `EXTERNAL_VALIDATION`: PASS only if external claim requirements are met.
-- `REPRODUCIBILITY_AND_HISTORY`: PASS only with traceable artifacts and Git
-  provenance.
+Manuscript drafting, submission preparation, new experiments, new innovation,
+protocol rescue, selective reporting or any action intended only to improve a
+venue-level assessment.
 
 ### REQUIRED OUTPUTS
 
-Final integrity report, final evidence checklist, final Git commit.
+```text
+PAPER_READINESS=PASS/HOLD/FAIL
+RESEARCH_FINAL_STATUS=RESEARCH_COMPLETE__PAPER_READY / RESEARCH_COMPLETE__PAPER_READINESS_HOLD / RESEARCH_COMPLETE__NOT_PAPER_READY
+MISSING_EVIDENCE=
+UNRESOLVED_RISK=
+MANUSCRIPT_AUTHORIZED=False
+```
+
+`PAPER_READINESS=FAIL` does not invalidate completed research: a reliable
+negative or insufficiently novel outcome is still a complete research result.
 
 ### ADVANCEMENT CONDITION
 
-All final gates PASS.
+None within this Research Master Plan.
 
 ### NEXT PHASE
 
-`SUBMISSION_READY` — still requires human approval.
+`NONE_WITHIN_CURRENT_RESEARCH_MASTER_PLAN`.
+
+If and only if `PAPER_READINESS=PASS` and the human researcher explicitly
+authorizes it, the future optional path is to create a separate
+`MANUSCRIPT_MASTER_PLAN.md`; this plan does not create or execute it.
 
 ### COMPLETION RECORD
 
@@ -768,10 +797,25 @@ DECISION=NOT_APPLICABLE
 
 ---
 
+# FUTURE OPTIONAL MANUSCRIPT PATH
+
+Manuscript writing is outside the scope of this `RESEARCH_MASTER_PLAN.md`.
+It is permitted only after both `PAPER_READINESS=PASS` and explicit human
+researcher authorization. Only then may a future, separate
+`MANUSCRIPT_MASTER_PLAN.md` be created. Its possible stages may include scope
+freeze, claim-evidence mapping, literature structure, methods/results/
+discussion drafting, full-manuscript audit and submission readiness; none is
+authorized here.
+
+```text
+ALL_MANUSCRIPT_PHASES=NOT_AUTHORIZED
+MANUSCRIPT_MASTER_PLAN_CREATED=False
+```
+
 # PLAN MAINTENANCE RULES
 
-1. Before every SOH research, code, experiment, audit, Git operation or paper
-   task, read `RESEARCH_GUARDRAILS.md`, then this file, then inspect Git HEAD
+1. Before every SOH research, code, experiment, audit, Git operation or
+   paper-readiness task, read `RESEARCH_GUARDRAILS.md`, then this file, then inspect Git HEAD
    and working-tree status.
 2. Do not work outside the current Phase unless this plan is formally updated
    first with its reason and Gate impact.
@@ -786,6 +830,14 @@ DECISION=NOT_APPLICABLE
    amendment.
 7. Every major phase transition requires explicit human researcher
    authorization even after its formal Gate passes.
+8. `RESEARCH_COMPLETION_DOES_NOT_IMPLY_PAPER_READINESS`.
+9. `PAPER_READINESS_DOES_NOT_IMPLY_MANUSCRIPT_AUTHORIZATION`.
+10. `CURRENT_RESEARCH_MASTER_PLAN_CONTAINS_NO_MANUSCRIPT_WRITING`.
+11. `MANUSCRIPT_WRITING_REQUIRES_SEPARATE_MASTER_PLAN` and that plan requires
+    explicit human authorization.
+12. `PAPER_READINESS_FAIL_DOES_NOT_INVALIDATE_COMPLETED_RESEARCH`.
+13. Do not add a second innovation or unplanned experiment to rescue paper
+    readiness. Negative results are valid research outcomes.
 
 ## POST-COMPLETION AMENDMENT template
 
@@ -853,6 +905,9 @@ ROOT_STATUS=
 LOCKED_TEST_STATUS=
 PRIMARY_INNOVATION_COUNT=
 PRIMARY_INNOVATION=
+RESEARCH_COMPLETION_STATUS=
+PAPER_READINESS_STATUS=
+MANUSCRIPT_AUTHORIZED=False
 ```
 
 # MASTER PLAN CHANGE LOG
@@ -889,4 +944,21 @@ GATE_IMPACT=G2 remains ACCEPTABLE_PARTIAL_COLLISION; F4 remains FAIL_FOR_V1; ③
 DOWNSTREAM_IMPACT=No advancement. Next action is human decision on L1 reference-test semantics and external operation-adapter audit.
 APPROVED_BY=human researcher request in current task
 GIT_COMMIT=c6f8c70
+```
+
+## PLAN-CHANGE-0003
+
+```text
+DATE=2026-09-03
+TRIGGER=Human researcher clarified that the current master plan must cover only research/code/experiment completion and a paper-readiness decision, not manuscript writing itself.
+CURRENT_PHASE=③ PTOC PRE-EXPERIMENT GATE
+CHANGED_SECTION=Overall objective; Phase progress; downstream Phases ⑦–⑨; permanent maintenance and feedback rules.
+OLD_PLAN_SUMMARY=The previous research plan implicitly progressed from evidence completion into manuscript preparation and submission-oriented stages.
+NEW_PLAN_SUMMARY=The revised plan ends with Research Outcome Freeze -> Research Completion Audit -> Paper Readiness Gate. Manuscript writing is removed from the current Research Master Plan and can only be governed by a separate future Manuscript Master Plan after paper-readiness PASS and explicit human authorization.
+RATIONALE=Prevent outcome-driven research and avoid assuming completed experiments necessarily justify a paper.
+EVIDENCE=Human researcher instruction in this task; current Phase ③ status register.
+GATE_IMPACT=No scientific result, Phase ①/② completion record, Phase ③ blocker, ROOT status, test policy or experiment authorization changed.
+DOWNSTREAM_IMPACT=Phase ④ remains blocked. Future research closes at ⑨; no manuscript/submission action can be reached inside this plan.
+APPROVED_BY=human researcher request in current task
+GIT_COMMIT=PENDING_CURRENT_ARCHIVE
 ```

@@ -7,6 +7,17 @@
 在采取行动前，必须报告 Master Plan Alignment；具体字段、Phase 范围、变更控制与晋级规则以
 `RESEARCH_MASTER_PLAN.md` 为准。科研安全和实验授权仍以 `RESEARCH_GUARDRAILS.md` 为最高来源。
 
+```text
+CURRENT_RESEARCH_MASTER_PLAN_DOES_NOT_AUTHORIZE_MANUSCRIPT_WRITING=True
+```
+
+研究完成不自动代表适合写论文；Paper Readiness 通过也不自动授权论文写作。只有独立的
+`MANUSCRIPT_MASTER_PLAN.md` 经 human researcher 明确授权后，才允许进入未来写作阶段。
+
+未来任务启动顺序固定为：1) 读取 `RESEARCH_GUARDRAILS.md`；2) 读取
+`RESEARCH_MASTER_PLAN.md`；3) 检查 Git 状态；4) 识别当前 Phase；5) 确认
+allowed/forbidden scope；6) 只执行当前 Phase；7) 报告 Master Plan Alignment。
+
 ## 研究实验红线
 
 在启动任何新的 research experiment、模型修改、迁移方法、source-selection
