@@ -1,0 +1,100 @@
+{
+  "artifact": "output\\root_post_completion_repair\\clean_root_features.csv",
+  "test_loaded": false,
+  "pairing_rule": "first_later_discharge_with_no_intervening_charge",
+  "feature_columns": [
+    "DISCHARGE_DURATION_S",
+    "DISCHARGE_V4P0_TO_V3P6_S",
+    "DISCHARGE_VOLTAGE_MEAN_V",
+    "DISCHARGE_VOLTAGE_STD_V",
+    "DISCHARGE_TEMPERATURE_MEAN_C",
+    "DISCHARGE_TEMPERATURE_STD_C",
+    "DISCHARGE_ENERGY_WH"
+  ],
+  "target_definition": "SOH = Capacity / 2.0 from paired completed discharge",
+  "historical_extractor": "scripts\\83_feature_adequacy_reassessment.py",
+  "historical_feature_source_sha256": "1c2a32e2e2e413f5a005795e2a31627bd3b75a2c4509c22160808ec77931f4b5",
+  "clean_feature_source_sha256": "e95573a9b45a9b7e4cd1530d40976319b4ba48b8b05b14323a1a4b82eba125a8",
+  "limits": {
+    "B0007": 67,
+    "B0018": 51
+  },
+  "regression_fixture": {
+    "fixture": [
+      "charge",
+      "charge",
+      "discharge"
+    ],
+    "expected_pair": [
+      1,
+      2
+    ],
+    "passed": true,
+    "non_charge_intermediary_fixture": [
+      "charge",
+      "impedance",
+      "discharge"
+    ],
+    "non_charge_intermediary_pair": [
+      0,
+      2
+    ]
+  },
+  "exclusions": {
+    "B0007": {
+      "structural": [
+        {
+          "RawChargeCycleIndex": 22,
+          "RawDischargeCycleIndex": 24,
+          "InterveningChargeCycleIndex": 23,
+          "Reason": "INTERVENING_CHARGE_BEFORE_TARGET_DISCHARGE"
+        },
+        {
+          "RawChargeCycleIndex": 83,
+          "RawDischargeCycleIndex": 85,
+          "InterveningChargeCycleIndex": 84,
+          "Reason": "INTERVENING_CHARGE_BEFORE_TARGET_DISCHARGE"
+        },
+        {
+          "RawChargeCycleIndex": 615,
+          "Reason": "NO_LATER_DISCHARGE"
+        }
+      ],
+      "waveform": [
+        {
+          "RawChargeCycleIndex": 84,
+          "RawDischargeCycleIndex": 85,
+          "Reason": "HISTORICAL_WAVEFORM_ELIGIBILITY_FAILURE",
+          "Exception": "ValueError"
+        }
+      ]
+    },
+    "B0018": {
+      "structural": [
+        {
+          "RawChargeCycleIndex": 114,
+          "RawDischargeCycleIndex": 116,
+          "InterveningChargeCycleIndex": 115,
+          "Reason": "INTERVENING_CHARGE_BEFORE_TARGET_DISCHARGE"
+        },
+        {
+          "RawChargeCycleIndex": 137,
+          "RawDischargeCycleIndex": 140,
+          "InterveningChargeCycleIndex": 139,
+          "Reason": "INTERVENING_CHARGE_BEFORE_TARGET_DISCHARGE"
+        }
+      ],
+      "waveform": [
+        {
+          "RawChargeCycleIndex": 40,
+          "RawDischargeCycleIndex": 41,
+          "Reason": "HISTORICAL_WAVEFORM_ELIGIBILITY_FAILURE",
+          "Exception": "ValueError"
+        }
+      ]
+    }
+  },
+  "one_to_one_charge_to_discharge": true,
+  "deterministic_reconstruction": true,
+  "ptoc_protocol_v1_changed": false
+}

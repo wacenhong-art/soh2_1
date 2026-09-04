@@ -17,7 +17,7 @@ PRIMARY_INNOVATION_COUNT=1
 ROOT_STATUS=FROZEN__REOPENING_REQUIRED
 EXPERIMENT_AUTHORIZATION=BLOCKED_PENDING_PTOC_PRE_EXPERIMENT_GATE
 LOCKED_TEST_STATUS=NOT_LOADED
-NEXT_ALLOWED_ACTION=HUMAN_REVIEW_BEFORE_ROOT_REPAIR
+NEXT_ALLOWED_ACTION=HUMAN_REVIEW_OF_FIXED_M0_REASSESSMENT_EXECUTION_AUTHORIZATION
 ```
 
 ## ⓪ Overall Research Objective
@@ -999,6 +999,30 @@ REOPENING_STATUS=HUMAN_REVIEW_BEFORE_ROOT_REPAIR
 GIT_COMMIT=PENDING
 ```
 
+### POST-COMPLETION AMENDMENT — ROOT-001-PAIRING-REPAIR-001
+
+```text
+AMENDMENT_ID=ROOT-001-PAIRING-REPAIR-001
+DATE=2026-09-04
+TRIGGER=Human-authorized controlled reopening of Phase ① to repair only the confirmed duplicate-discharge pairing defect.
+DISCOVERED_DURING_PHASE=③ PTOC Pre-Experiment Gate
+AFFECTED_COMPLETED_PHASE=① ROOT Freeze
+ORIGINAL_STATUS=PASS__PRESERVED
+REPAIR_SCOPE=Pairing only; no feature, target, model, alpha, scaling, split, metric, battery scope or capacity-adjacent-policy change.
+PROHIBITED_SCOPE=Model / feature / task optimization; test access; PTOC protocol change; protocol-amendment reopening.
+REPAIR_SPEC=ROOT_PAIRING_REPAIR_SPEC.md (frozen before regeneration; commit 0f37a55)
+STRUCTURAL_REPAIR_RESULT=PASS: 118 clean rows; 118 unique qualified discharges; 0 duplicate assignments; B0018 artifact unchanged; deterministic fixture and reconstruction PASS.
+UNEXPECTED_BUT_RULE_REQUIRED_EFFECT=The order-only one-to-one rule also excludes B0007 q83->d85 because charge 84 occurs before d85; q84 itself fails the historical waveform eligibility check. This is documented as the same defect class, not a metric-selected alteration.
+METRIC_REASSESSMENT=NOT_EXECUTED__EXECUTION_GUARD_BLOCKED; no performance value, validation result, or test result was produced.
+ROOT_REFREEZE_GATE=STRUCTURAL_PASS__BASELINE_ROLE_NOT_ASSESSED
+CURRENT_ROOT_STATUS=FROZEN__REOPENING_REQUIRED
+WHAT_REMAINS_VALID=Historical Phase ① PASS, historical affected artifact, test lock, ROOT interpretation boundary, Phase ③ BLOCKED and PTOC v1 immutability.
+WHAT_DOES_NOT_FOLLOW=ROOT_V2_CLEAN refreeze, PTOC amendment reconsideration, Phase ④ authorization, model tuning, or test access.
+POST_COMPLETION_AMENDMENT_STATUS=OPEN__STRUCTURAL_REPAIR_PASS__METRIC_REASSESSMENT_NOT_EXECUTED
+NEXT_ACTION=HUMAN_REVIEW_OF_FIXED_M0_REASSESSMENT_EXECUTION_AUTHORIZATION
+GIT_COMMIT=PENDING
+```
+
 ## PLAN-CHANGE-0005
 
 ```text
@@ -1013,5 +1037,22 @@ EVIDENCE=ROOT_PAIRING_PROVENANCE_AUDIT.md; output/root_pairing_provenance_audit/
 GATE_IMPACT=G2 remains ACCEPTABLE_PARTIAL_COLLISION; PTOC F4 remains FAIL_FOR_V1; F6 is unchanged; Phase ③ and ④ remain BLOCKED.
 DOWNSTREAM_IMPACT=Human review is required before a Phase ① repair/recheck. No PTOC amendment reconsideration or performance experiment is authorized now.
 APPROVED_BY=human researcher authorization in PHASE_3_ROOT_PROVENANCE_RESOLUTION__LABEL_SAFE_SOURCE_ARTIFACT_AUDIT
+GIT_COMMIT=PENDING
+```
+
+## PLAN-CHANGE-0006
+
+```text
+DATE=2026-09-04
+TRIGGER=Controlled Phase ① ROOT pairing repair completed its result-blind structural gate but the sole permitted M0 reassessment was blocked by execution control.
+CURRENT_PHASE=③ PTOC PRE-EXPERIMENT GATE
+CHANGED_SECTION=Current next-action register and Phase ① post-completion amendment register.
+OLD_PLAN_SUMMARY=ROOT required human review before any repair.
+NEW_PLAN_SUMMARY=The repair specification is frozen and the clean artifact passes all structural, determinism, non-drift and no-test checks. ROOT cannot yet be refrozen because its fixed baseline-role reassessment was not executed.
+RATIONALE=Record a genuine controlled-repair result without treating a blocked model run as a result and without relaxing any locked-test, protocol, or phase gate.
+EVIDENCE=ROOT_PAIRING_REPAIR_SPEC.md; ROOT_POST_COMPLETION_REPAIR_REPORT.md; output/root_post_completion_repair/clean_pairing_manifest.json; structural_diff.json.
+GATE_IMPACT=Phase ① historical PASS remains preserved; the post-completion repair remains open. Phase ③ and ④ remain BLOCKED; PTOC F4 remains FAIL_FOR_V1 and no v1.1 is created.
+DOWNSTREAM_IMPACT=Only human review of the already-frozen M0 reassessment execution is next. No protocol-amendment reconsideration is authorized.
+APPROVED_BY=human researcher authorization in PHASE_1_POST_COMPLETION_REPAIR__CLEAN_ROOT_PAIRING_AND_REFREEZE_GATE
 GIT_COMMIT=PENDING
 ```

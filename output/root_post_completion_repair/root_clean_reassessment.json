@@ -1,0 +1,9 @@
+{
+  "reassessment_status": "NOT_EXECUTED__EXECUTION_GUARD_BLOCKED",
+  "test_loaded": false,
+  "performance_values_present": false,
+  "authorized_protocol": "M0_RIDGE alpha=0.1 on fixed nonlocked chronological validation prefixes only",
+  "locked_test_required": false,
+  "reason": "The execution environment rejected the model-fitting command as outside the permitted read-only audit boundary. No workaround was attempted.",
+  "next_action": "HUMAN_REVIEW_OF_FIXED_M0_REASSESSMENT_EXECUTION_AUTHORIZATION"
+}

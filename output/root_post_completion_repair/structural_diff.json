@@ -1,0 +1,30 @@
+{
+  "old_root_rows": 118,
+  "new_root_rows": 118,
+  "old_unique_discharge_records": 117,
+  "new_unique_discharge_records": 118,
+  "duplicate_discharge_before": 1,
+  "duplicate_discharge_after": 0,
+  "removed_pair_ids": [
+    "B0007:q22:d24",
+    "B0007:q83:d85"
+  ],
+  "added_pair_ids": [
+    "B0007:q221:d223",
+    "B0007:q225:d227"
+  ],
+  "common_pair_values_unchanged": true,
+  "feature_columns_identical": true,
+  "b0018_input_artifact_unchanged": true,
+  "unchanged_value_columns": [
+    "DISCHARGE_DURATION_S",
+    "DISCHARGE_V4P0_TO_V3P6_S",
+    "DISCHARGE_VOLTAGE_MEAN_V",
+    "DISCHARGE_VOLTAGE_STD_V",
+    "DISCHARGE_TEMPERATURE_MEAN_C",
+    "DISCHARGE_TEMPERATURE_STD_C",
+    "DISCHARGE_ENERGY_WH",
+    "SOH",
+    "TestLoaded"
+  ]
+}
